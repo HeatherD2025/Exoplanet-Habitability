@@ -1,3 +1,4 @@
+import "dotenv/config";
 import prismaPkg from "../generated/prisma/index.js";
 import { PrismaPg } from "@prisma/adapter-pg";
 import pg from "pg";
@@ -9,9 +10,12 @@ let prisma: InstanceType<typeof PrismaClient>;
 async function seed() {
   console.log("Starting exoplanet data seeding...");
 
-  const connectionString = process.env.DATABASE_URL;
+  // Prefer DIRECT_URL for seeds: Supabase pooler URLs (DATABASE_URL on :6543 with
+  // user `postgres.<project_ref>`) can return "tenant/user not found" for some clients.
+  const connectionString =
+    process.env.DIRECT_URL?.trim() || process.env.DATABASE_URL?.trim();
   if (!connectionString) {
-    throw new Error("DATABASE_URL is not set.");
+    throw new Error("Set DIRECT_URL or DATABASE_URL in .env for seeding.");
   }
 
   const pool = new pg.Pool({ connectionString });
