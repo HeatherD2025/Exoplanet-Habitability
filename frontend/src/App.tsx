@@ -1,10 +1,16 @@
-import { useState } from "react";
+import { useState, type ComponentType } from "react";
 import Spinner from "react-bootstrap/Spinner";
 import Alert from "react-bootstrap/Alert";
 import PlanetGrid from "./components/PlanetGrid";
 import usePlanets from "./hooks/usePlanets";
+import LandingView from "./views/LandingView";
 
-import WelcomeModal from "./components/WelcomeModal";
+// import WelcomeModal from "./components/WelcomeModal";
+
+const LandingViewTyped = LandingView as ComponentType<{
+  showModal: boolean;
+  handleCloseModal: () => void;
+}>;
 
 export default function App() {
   const [showModal, setShowModal] = useState<boolean>(false);
@@ -15,7 +21,7 @@ export default function App() {
 
   return (
     <div>
-      <WelcomeModal showModal={showModal} hideModal={handleCloseModal} />
+      <LandingViewTyped showModal={showModal} handleCloseModal={handleCloseModal} />
 
       <main className="py-4 bg-light min-vh-100">
         {loading && (

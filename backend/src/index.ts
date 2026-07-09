@@ -1,16 +1,18 @@
 import "dotenv/config";
 import { pathToFileURL } from "node:url";
 import express from "express";
-import cors from 'cors';
+import cors from "cors";
 import { defaultPlanetInclude, formatPlanet } from "./api/planets.js";
 import prisma from "./lib/prisma.js";
 
 export const app = express();
-app.use(cors({
-  origin: 'http://localhost:5173',
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  credentials: true,
-}));
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  }),
+);
 
 const PORT = 3000;
 
@@ -38,7 +40,6 @@ app.get("/api/planets", async (_req, res) => {
 
     // Return array directly so Array.isArray() evaluates to true on the frontend
     return res.status(200).json(planets.map(formatPlanet));
-    
   } catch (error) {
     console.error("Failed to fetch planets:", error);
     return res.status(500).json({

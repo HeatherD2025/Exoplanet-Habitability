@@ -29,10 +29,9 @@ export default function WelcomeModal({ showModal, hideModal }: WelcomeModalProps
               />
             </div>
 
-          <Modal.Title>Exoplanets Real Estate</Modal.Title>
+          <Modal.Title>Search the cosmos for your next planetary home</Modal.Title>
         </Modal.Header>
 
-        <Modal.Body>Search the cosmos for your next planetary home</Modal.Body>
 
         <button
           className="close-button" 
