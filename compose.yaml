@@ -1,0 +1,54 @@
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    command: npm run dev # overrides "npm start" just for local dev
+    ports:
+      - "9999:3000"
+    volumes:
+      - ./backend:/app # Links my local backend for hot-reloading
+      - /app/node_modules # prevents local machine from overwriting container modules
+    environment:
+      - DATABASE_URL=postgresql://postgres:postgres@db:5432/exoplanet-habitability-app
+      - DIRECT_URL=postgresql://postgres:postgres@db:5432/exoplanet-habitability-app
+      - LOCAL_DATABASE_URL=postgresql://postgres:postgres@db:5432/exoplanet-habitability-app
+    depends_on:
+      db:
+        condition: service_healthy
+
+  db:
+    image: postgres:17
+    container_name: db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: exoplanet-habitability-app
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test:
+        ["CMD-SHELL", "pg_isready -U postgres -d exoplanet-habitability-app"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    environment:
+      - VITE_API_URL=http://localhost:9999
+    depends_on:
+      - backend
+
+# this mounts a folder on my local machine to the db folder inside the container
+volumes:
+  postgres_data:

@@ -1,0 +1,39 @@
+{
+  "name": "exoplanet-habitability-app",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "start": "tsx src/index.ts",
+    "db:generate": "prisma generate",
+    "db:seed": "tsx prisma/seed.ts",
+    "db:seed:local": "SEED_TARGET=local tsx prisma/seed.ts",
+    "db:seed:supabase": "SEED_TARGET=supabase tsx prisma/seed.ts",
+    "db:push:local": "DATABASE_URL=${LOCAL_DATABASE_URL:-postgresql://postgres:postgres@127.0.0.1:5433/exoplanet-habitability-app} npx prisma db push",
+    "db:push:supabase": "sh -c 'set -a && . ./.env && set +a && DATABASE_URL=\"$DIRECT_URL\" npx prisma db push'",
+    "db:migrate:local": "npm run db:push:local",
+    "db:migrate:supabase": "npm run db:push:supabase",
+    "test:api": "node --import tsx --test src/api/planets.test.ts src/api/planets.mapper.test.ts",
+    "test:habitability": "node --import tsx --test src/math/habitability.test.ts",
+    "postinstall": "prisma generate"
+  },
+  "devDependencies": {
+    "@prisma/client": "^7.8.0",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.0.0",
+    "@types/pg": "^8.11.0",
+    "@types/supertest": "^6.0.2",
+    "prisma": "^7.8.0",
+    "supertest": "^7.0.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.7.0"
+  },
+  "dependencies": {
+    "@prisma/adapter-pg": "7.8.0",
+    "cors": "^2.8.6",
+    "dotenv": "^16.4.0",
+    "express": "^5.0.0",
+    "pg": "^8.13.0"
+  }
+}
