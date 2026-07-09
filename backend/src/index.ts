@@ -24,11 +24,6 @@ function isMainModule(): boolean {
   }
 }
 
-app.get("/", (_req, res) => {
-  console.log("Hit the root route!");
-  res.send("Server is running");
-});
-
 app.get("/api/planets", async (_req, res) => {
   try {
     const planets = await prisma.planet.findMany({
@@ -37,17 +32,13 @@ app.get("/api/planets", async (_req, res) => {
     });
 
     if (planets.length === 0) {
-      return res.status(200).json({
-        message:
-          "Connection successful, but database is empty. Please run seed script.",
-      });
+      // Return empty array so frontend still receives a valid array structure
+      return res.status(200).json([]);
     }
 
-    return res.status(200).json({
-      message: "Connection successful",
-      count: planets.length,
-      planets: planets.map(formatPlanet),
-    });
+    // Return array directly so Array.isArray() evaluates to true on the frontend
+    return res.status(200).json(planets.map(formatPlanet));
+    
   } catch (error) {
     console.error("Failed to fetch planets:", error);
     return res.status(500).json({

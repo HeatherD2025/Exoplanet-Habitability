@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
-import type { Exoplanet } from "../types/planet";
+import type { Planet } from "../types/planet";
 
 export default function usePlanets() {
-  const [planets, setPlanets] = useState<Exoplanet[]>([]);
+  const [planets, setPlanets] = useState<Planet[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 

@@ -15,13 +15,14 @@ export interface PlanetaryTrait {
   eclipseSpectroscopyCount: number;
   directImagingSpectroscopyCount: number;
   atmosphere: Atmosphere;
+  habitabilityScore: number;
+  isIncompleteDataset: boolean;
 }
 
 export interface Planet {
   id: string;
   name: string; // Updated from pl_name
-  discoveryYear: number; // Updated from disc_year
-  hostStarName: string; // Updated from hostname
-  trait?: PlanetaryTrait; // Holds all your habitability physics data
-  // Add habitability score fields here if they are calculated on your backend object root
+  discoveryYear: number | null; // Updated from disc_year
+  hostStarName: string | null; // Updated from hostname
+  trait?: PlanetaryTrait | null; // Holds all the habitability physics data
 }
