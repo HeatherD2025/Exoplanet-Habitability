@@ -1,6 +1,8 @@
 import type { Planet, PlanetaryTrait, Prisma } from "@prisma/client";
 import {
   calculateAtmosphere,
+  calculateEstimatedMass,    
+  calculateHabitabilityIndex, 
   type AtmosphereAssessment,
   type NasaSpectroscopyCounts,
 } from "../math/habitability.js";
@@ -22,6 +24,8 @@ export interface PlanetaryTraitApi {
   eclipseSpectroscopyCount: number | null;
   directImagingSpectroscopyCount: number | null;
   atmosphere: AtmosphereAssessment;
+  habitabilityScore: number;
+  isIncompleteDataset: boolean;
 }
 
 export interface PlanetApi {
@@ -59,10 +63,35 @@ export function atmosphereAssessmentFromTrait(
   );
 }
 
+// 3. Updated formatting function with mass fallback and indexing
 export function formatPlanetaryTrait(trait: PlanetaryTrait): PlanetaryTraitApi {
+  const rawRadius = toNumber(trait.planetaryRadius);
+  let rawMass = toNumber(trait.planetaryMass);
+
+  // If mass data is missing but radius exists, apply empirical fallback formula
+  if (rawMass === null && rawRadius !== null) {
+    rawMass = calculateEstimatedMass(rawRadius);
+  }
+
+  // Generate atmosphere metrics using the fallback params
+  const atmosphere = calculateAtmosphere(
+    toNumber(trait.equilibriumTemperatureKelvin),
+    rawRadius,
+    rawMass,
+    spectroscopyFromTrait(trait)
+  );
+
+  // Compute the final score
+  const habitability = calculateHabitabilityIndex(
+    toNumber(trait.equilibriumTemperatureKelvin),
+    rawRadius,
+    rawMass,
+    atmosphere.canRetain
+  );
+
   return {
-    planetaryMass: toNumber(trait.planetaryMass),
-    planetaryRadius: toNumber(trait.planetaryRadius),
+    planetaryMass: rawMass,
+    planetaryRadius: rawRadius,
     massType: trait.massType,
     stellarFlux: toNumber(trait.stellarFlux),
     orbitalDistance: toNumber(trait.orbitalDistance),
@@ -70,7 +99,9 @@ export function formatPlanetaryTrait(trait: PlanetaryTrait): PlanetaryTraitApi {
     transmissionSpectroscopyCount: trait.transmissionSpectroscopyCount,
     eclipseSpectroscopyCount: trait.eclipseSpectroscopyCount,
     directImagingSpectroscopyCount: trait.directImagingSpectroscopyCount,
-    atmosphere: atmosphereAssessmentFromTrait(trait),
+    atmosphere: atmosphere,
+    habitabilityScore: habitability.score,
+    isIncompleteDataset: habitability.isIncomplete,
   };
 }
 
