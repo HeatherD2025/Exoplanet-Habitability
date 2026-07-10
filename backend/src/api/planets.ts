@@ -1,5 +1,6 @@
 import type { Planet, PlanetaryTrait, Prisma } from "@prisma/client";
 import {
+  equilibriumTemperatureFahrenheit,
   calculateAtmosphere,
   calculateEstimatedMass,    
   calculateHabitabilityIndex, 
@@ -14,6 +15,7 @@ export type PlanetWithDefaultTrait = Planet & {
 };
 
 export interface PlanetaryTraitApi {
+  equilibriumTemperatureFahrenheit: number | null;
   planetaryMass: number | null;
   planetaryRadius: number | null;
   massType: PlanetaryTrait["massType"];
@@ -96,6 +98,7 @@ export function formatPlanetaryTrait(trait: PlanetaryTrait): PlanetaryTraitApi {
     stellarFlux: toNumber(trait.stellarFlux),
     orbitalDistance: toNumber(trait.orbitalDistance),
     equilibriumTemperatureKelvin: toNumber(trait.equilibriumTemperatureKelvin),
+    equilibriumTemperatureFahrenheit: equilibriumTemperatureFahrenheit(toNumber(trait.equilibriumTemperatureKelvin)),
     transmissionSpectroscopyCount: trait.transmissionSpectroscopyCount,
     eclipseSpectroscopyCount: trait.eclipseSpectroscopyCount,
     directImagingSpectroscopyCount: trait.directImagingSpectroscopyCount,

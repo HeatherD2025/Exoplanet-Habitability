@@ -11,6 +11,7 @@ export interface PlanetaryTrait {
   stellarFlux: number | null;
   orbitalDistance: number | null;
   equilibriumTemperatureKelvin: number | null;
+  equilibriumTemperatureFahrenheit: number | null;
   transmissionSpectroscopyCount: number;
   eclipseSpectroscopyCount: number;
   directImagingSpectroscopyCount: number;
