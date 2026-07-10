@@ -1,19 +1,12 @@
-import { useState, type ComponentType } from "react";
+import { useState } from "react";
 import Spinner from "react-bootstrap/Spinner";
 import Alert from "react-bootstrap/Alert";
-import PlanetGrid from "./components/PlanetGrid";
 import usePlanets from "./hooks/usePlanets";
 import LandingView from "./views/LandingView";
-
-// import WelcomeModal from "./components/WelcomeModal";
-
-const LandingViewTyped = LandingView as ComponentType<{
-  showModal: boolean;
-  handleCloseModal: () => void;
-}>;
+import DashboardView from "./views/DashboardView";
 
 export default function App() {
-  const [showModal, setShowModal] = useState<boolean>(false);
+  const [showModal, setShowModal] = useState<boolean>(true);
 
   const { planets, loading, error } = usePlanets();
 
@@ -21,14 +14,15 @@ export default function App() {
 
   return (
     <div>
-      <LandingViewTyped showModal={showModal} handleCloseModal={handleCloseModal} />
+      {/* Pass our parent state control functions down */}
+      <LandingView showModal={showModal} handleCloseModal={handleCloseModal} />
 
-      <main className="py-4 bg-light min-vh-100">
+      <main className="py-5 bg-light min-vh-100">
         {loading && (
           <div className="d-flex flex-column align-items-center justify-content-center my-5">
             <Spinner animation="border" variant="primary" className="mb-2" />
             <p className="text-muted">
-              Scanning the cosmos for habitable worlds...
+              Scanning the cosmos for habitable listings...
             </p>
           </div>
         )}
@@ -37,13 +31,12 @@ export default function App() {
           <div className="container my-4">
             <Alert variant="danger">
               <Alert.Heading>Data Retrieval Error</Alert.Heading>
-              <p>{error}</p>
+              <p className="mb-0">{error}</p>
             </Alert>
           </div>
         )}
 
-        {/* 4. Render the grid safely only when loading is complete and no errors occurred */}
-        {!loading && !error && !showModal && <PlanetGrid planets={planets} />}
+        {!loading && !error && !showModal && <DashboardView planets={planets} />}
       </main>
     </div>
   );

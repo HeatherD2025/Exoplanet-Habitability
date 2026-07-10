@@ -1,8 +1,5 @@
 import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import Card from "react-bootstrap/Card";
-import Badge from "react-bootstrap/Badge";
+import { Row, Col, Card, Badge } from "react-bootstrap";
 import type { Planet } from "../types/planet";
 
 interface PlanetGridProps {
