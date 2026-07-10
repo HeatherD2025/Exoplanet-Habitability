@@ -25,7 +25,16 @@ function PlanetGrid({ planets }: PlanetGridProps) {
                   </div>
 
                   {planet.trait && (
-                    <Badge bg="success" className="px-2 py-1 fs-6">
+                    <Badge
+                      bg={
+                        planet.trait.habitabilityScore >= 0.75
+                          ? "success"
+                          : planet.trait.habitabilityScore >= 0.4
+                            ? "warning"
+                            : "danger"
+                      }
+                      className="px-2 py-1 fs-6 text-dark"
+                    >
                       {planet.trait.habitabilityScore.toFixed(2)}
                     </Badge>
                   )}

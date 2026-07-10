@@ -29,7 +29,7 @@ function isMainModule(): boolean {
 app.get("/api/planets", async (_req, res) => {
   try {
     const planets = await prisma.planet.findMany({
-      take: 150,
+      take: 200,
       include: defaultPlanetInclude,
     });
 

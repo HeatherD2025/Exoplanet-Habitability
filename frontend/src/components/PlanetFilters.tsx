@@ -45,9 +45,9 @@ export default function PlanetFilters({ onFilterChange }: PlanetFiltersProps) {
         updateFilters(
           {
             minScore: 0.75,
-            hideIncomplete: true,
+            hideIncomplete: false,
             requireAtmosphere: true,
-            climateZone: "temperate",
+            climateZone: "all",
           },
           "move-in-ready",
         );
