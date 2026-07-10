@@ -19,9 +19,9 @@ function PlanetGrid({ planets }: PlanetGridProps) {
                     <Card.Title className="fw-bold mb-0">
                       {planet.name}
                     </Card.Title>
-                    <Card.Subtitle className="text-muted small mt-1">
+                    {/* <Card.Subtitle className="text-muted small mt-1">
                       Host Star: {planet.hostStarName || "Unknown"}
-                    </Card.Subtitle>
+                    </Card.Subtitle> */}
                   </div>
 
                   {planet.trait && (
@@ -43,6 +43,8 @@ function PlanetGrid({ planets }: PlanetGridProps) {
                 <hr className="my-2 opacity-25" />
 
                 <Card.Text className="text-secondary small flex-grow-1">
+                  <strong>Host Star:</strong>{" "}
+                  {planet.hostStarName || "Unknown"} <br />
                   <strong>Discovery Year:</strong>{" "}
                   {planet.discoveryYear || "N/A"} <br />
                   <strong>Atmosphere:</strong>{" "}

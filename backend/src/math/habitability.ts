@@ -18,6 +18,8 @@ export interface PlanetData {
  * Normalized values expressed in Earth-relative units.
  */
 export interface EarthUnitsData {
+  /** Temperature in Fahrenheit. */
+  equilibriumTemperatureFahrenheit: number | null;
   /** Planet mass in Earth masses (M_earth). */
   massEarth: number | null;
   /** Planet radius in Earth radii (R_earth). */
@@ -26,6 +28,15 @@ export interface EarthUnitsData {
   orbitalDistanceAu: number | null;
   /** Estimated incident flux relative to Earth = 1.0. */
   stellarFluxEarth: number | null;
+}
+
+export function equilibriumTemperatureFahrenheit(
+  kelvin: number | null | undefined,
+): number | null {
+  if (typeof kelvin !== "number" || !Number.isFinite(kelvin)) {
+    return null;
+  }
+  return Number(((kelvin - 273.15) * (9 / 5) + 32).toFixed(2));
 }
 
 /**
