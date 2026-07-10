@@ -86,9 +86,9 @@ function PlanetGrid({ planets }: PlanetGridProps) {
                     <strong>Discovery Year:</strong>{" "}
                     {planet.discoveryYear || "Unknown"} <br />
                     <strong>Average Temperature:</strong>{" "}
-                    {planet.trait?.equilibriumTemperatureFahrenheit?.toFixed(2) ||
+                    {planet.trait?.equilibriumTemperatureFahrenheit?.toFixed(2) ? "°F" :
                       "Unknown"}
-                    °F
+                    
                   </Card.Text>
 
                   {/* Reframed Atmosphere Section */}
