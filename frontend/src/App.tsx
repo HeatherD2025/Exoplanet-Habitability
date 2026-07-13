@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Spinner from "react-bootstrap/Spinner";
 import Alert from "react-bootstrap/Alert";
+import Button from "react-bootstrap/Button";
 import usePlanets from "./hooks/usePlanets";
 import LandingView from "./views/LandingView";
 import DashboardView from "./views/DashboardView";
@@ -8,7 +9,8 @@ import DashboardView from "./views/DashboardView";
 export default function App() {
   const [showModal, setShowModal] = useState<boolean>(true);
 
-  const { planets, loading, error } = usePlanets();
+  const { planets, loading, loadingMore, error, hasMore, loadMore } =
+    usePlanets();
 
   const handleCloseModal = () => setShowModal(false);
 
@@ -36,7 +38,37 @@ export default function App() {
           </div>
         )}
 
-        {!loading && !error && !showModal && <DashboardView planets={planets} />}
+        {!loading && !error && !showModal && (
+          <>
+            <DashboardView planets={planets} />
+
+            {/*Pagination controls*/}
+            <div className="container text-center my-5 pt-4 border-top border-light-subtle">
+              {hasMore ? (
+                <Button
+                  variant="primary"
+                  onClick={loadMore}
+                  disabled={loadingMore}
+                  className="px-5 shadow-sm"
+                >
+                  {loadingMore ? (
+                    <>
+                      <Spinner animation="border" size="sm" className="me-2" />
+                      Searching Deeper Space...
+                    </>
+                  ) : (
+                    "Expand Search Coordinates (load more)"
+                  )}
+                </Button>
+              ) : (
+                <p className="text-muted small italic">
+                  You have mapped all available sectors within our local galatic
+                  cluster
+                </p>
+              )}
+            </div>
+          </>
+        )}
       </main>
     </div>
   );
