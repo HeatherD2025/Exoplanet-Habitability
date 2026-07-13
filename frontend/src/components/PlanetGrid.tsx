@@ -8,17 +8,25 @@ interface PlanetGridProps {
 
 // Updated helper to return clean react-bootstrap variant strings
 function getAtmosphereLabel(
-  confidence: "None" | "Low" | "Medium" | "High" | null,
+  confidence: string | null,
   canRetain: boolean
 ): { badge: string; variant: string; note: string } {
-  if (!confidence || confidence === "None") {
+  const normalizedConfidence =
+    confidence === "None" ||
+    confidence === "Low" ||
+    confidence === "Medium" ||
+    confidence === "High"
+      ? confidence
+      : null;
+
+  if (!normalizedConfidence || normalizedConfidence === "None") {
     return { 
       badge: "None (Vacuum)", 
       variant: "danger", 
       note: "Barren, airless environment." 
     };
   }
-  if (confidence === "Low") {
+  if (normalizedConfidence === "Low") {
     return { 
       badge: canRetain ? "Unverified Envelope" : "Negligible", 
       variant: "secondary", 
@@ -46,9 +54,14 @@ function PlanetGrid({ planets }: PlanetGridProps) {
       <Row className="row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
         {planets.map((planet) => {
           // Calculate the specific atmospheric real estate profile for each planet loop item
+          const canRetain =
+            planet.trait && "canRetain" in planet.trait
+              ? (planet.trait as { canRetain?: boolean }).canRetain ?? false
+              : false;
+
           const atmos = getAtmosphereLabel(
             planet.trait?.atmosphere?.atmosphereConfidence || null,
-            planet.trait?.canRetain || false
+            canRetain
           );
 
           return (

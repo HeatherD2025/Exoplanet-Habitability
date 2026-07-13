@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Row, Col, Button, Form, Collapse, Card } from "react-bootstrap";
+import { Row, Col, Button, Form, Collapse } from "react-bootstrap";
 
 export interface FilterState {
   minScore: number;

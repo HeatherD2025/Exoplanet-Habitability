@@ -28,9 +28,15 @@ function isMainModule(): boolean {
 
 app.get("/api/planets", async (_req, res) => {
   try {
+
+    const skip = parseInt(_req.query.skip as string) || 0;
+    const take = parseInt(_req.query.take as string) || 200;
+
     const planets = await prisma.planet.findMany({
-      take: 200,
+      skip: skip,
+      take: take,
       include: defaultPlanetInclude,
+      orderBy: {id: 'asc'}
     });
 
     if (planets.length === 0) {
@@ -40,6 +46,7 @@ app.get("/api/planets", async (_req, res) => {
 
     // Return array directly so Array.isArray() evaluates to true on the frontend
     return res.status(200).json(planets.map(formatPlanet));
+    
   } catch (error) {
     console.error("Failed to fetch planets:", error);
     return res.status(500).json({
