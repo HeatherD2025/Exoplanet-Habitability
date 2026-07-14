@@ -1,5 +1,5 @@
 import Container from "react-bootstrap/Container";
-import { Row, Col, Card, Badge } from "react-bootstrap";
+import { Row, Col, Card, Badge, CardHeader } from "react-bootstrap";
 import type { Planet } from "../types/planet";
 
 interface PlanetGridProps {
@@ -68,12 +68,15 @@ function PlanetGrid({ planets }: PlanetGridProps) {
             <Col key={planet.id}>
               <Card className="h-100 shadow-sm border-0">
                 <Card.Body className="d-flex flex-column">
-                  <div className="d-flex justify-content-between align-items-start mb-2">
+                  <div className="d-flex justify-content-center align-items-start flex-wrap mb-2">
                     <div>
-                      <Card.Title className="fw-bold mb-0">
-                        {planet.name}
+                      <Card.Title>
+                        <h3 className="">{planet.name}</h3>
                       </Card.Title>
                     </div>
+
+                <CardHeader className="w-100">
+                  <p>Quality Score:</p>
 
                     {planet.trait && (
                       <Badge
@@ -89,6 +92,7 @@ function PlanetGrid({ planets }: PlanetGridProps) {
                         {planet.trait.habitabilityScore.toFixed(2)}
                       </Badge>
                     )}
+                    </CardHeader>
                   </div>
 
                   <hr className="my-2 opacity-25" />

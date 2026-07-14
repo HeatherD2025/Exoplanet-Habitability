@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Row, Col, Button, Form, Collapse } from "react-bootstrap";
+import '../App.css';
 
 export interface FilterState {
   minScore: number;
@@ -80,10 +81,10 @@ export default function PlanetFilters({ onFilterChange }: PlanetFiltersProps) {
   };
 
   return (
-    <div className="bg-light p-4 rounded-3 shadow-sm border mb-4">
-      <div className="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-3">
+    <div className="p-4 rounded-3 bg-gray-100 shadow-sm border mb-4" style={{ backgroundColor: "#a2b8d2"}}>
+      <div className="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-2">
         <div className="d-flex align-items-center gap-2 flex-wrap">
-          <span className="fw-bold text-secondary text-uppercase small tracking-wider me-2">
+          <span className="fw-bold text-secondary text-uppercase small tracking-wider me-2" style={{ color: "black"}}>
             Browse Lifestyles:
           </span>
           <Button
@@ -94,6 +95,7 @@ export default function PlanetFilters({ onFilterChange }: PlanetFiltersProps) {
             }
             onClick={() => applyLifestyle("move-in-ready")}
             className="rounded-pill px-3 btn-sm fw-semibold"
+            style={{ backgroundColor: "#beebc4"}}
           >
             Move-In Ready
           </Button>
@@ -103,6 +105,7 @@ export default function PlanetFilters({ onFilterChange }: PlanetFiltersProps) {
             }
             onClick={() => applyLifestyle("paradise")}
             className="rounded-pill px-3 btn-sm fw-semibold"
+            style={{ backgroundColor: "#edd0cd"}}
           >
             Solar Paradise
           </Button>
@@ -112,6 +115,7 @@ export default function PlanetFilters({ onFilterChange }: PlanetFiltersProps) {
             }
             onClick={() => applyLifestyle("fixer")}
             className="rounded-pill px-3 btn-sm fw-semibold text-dark"
+            style={{ backgroundColor: "#efe1b7"}}
           >
             Fixer-Upper (As-Is)
           </Button>

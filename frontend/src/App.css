@@ -199,3 +199,50 @@
     shipFloat 4s ease-in-out infinite,
     thrusterFlicker2 0.20s ease-in-out infinite alternate;
 }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+  background-color: black;
+  color: white; 
+  scroll-behavior: smooth;
+  scroll-padding-top: 2rem;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: black;
+}
+
+.landing-view, .main-header {
+  width: 100%;
+  background-color: black;
+  margin: 0;
+  padding: 2rem 1rem;
+  box-sizing: border-box;
+}
+
+.dashboard-container {
+  background-color: #5c6b8a;
+  width: 80%;
+  margin: auto;
+  min-height: 50vh;
+  flex-grow: 1;
+  padding: 3rem 1.5rem;
+  box-sizing: border-box;
+}
+
+.main-background {
+  background-color: black;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+

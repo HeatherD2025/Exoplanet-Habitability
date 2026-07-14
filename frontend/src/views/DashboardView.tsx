@@ -56,28 +56,28 @@ export default function DashboardView({ planets }: DashboardViewProps) {
   });
 
   return (
-    <Container>
-      <header className="mb-4">
-        <h2 className="fw-bold tracking-tight text-dark mb-1">
-          Available Interstellar Listings
-        </h2>
-        <p className="text-muted small">
-          Premium planetary sectors calculated via telemetry analysis. Adjust
-          custom options below.
-        </p>
-      </header>
+      <Container className="planet-filter-and-grid-container">
+        <header className="mb-5">
+          <h2 className="fw-bold tracking-tight text-dark pb-1">
+            Available Interstellar Listings
+          </h2>
+          <p className="text-muted small">
+            Premium planetary sectors calculated via telemetry analysis. Adjust
+            custom options below.
+          </p>
+        </header>
 
-      <PlanetFilters onFilterChange={setActiveFilters} />
+        <PlanetFilters onFilterChange={setActiveFilters} />
 
-      {/* Grid response output layout */}
-      {filteredPlanets.length === 0 ? (
-        <Alert variant="info" className="text-center py-5 border-dashed">
-          No planetary sectors found matching these target custom criteria. Try
-          scaling down your property inspection preferences!
-        </Alert>
-      ) : (
-        <PlanetGrid planets={filteredPlanets} />
-      )}
-    </Container>
+        {/* Grid response output layout */}
+        {filteredPlanets.length === 0 ? (
+          <Alert variant="info" className="text-center py-5 border-dashed">
+            No planetary sectors found matching these target custom criteria. Try
+            scaling down your property inspection preferences!
+          </Alert>
+        ) : (
+          <PlanetGrid planets={filteredPlanets} />
+        )}
+      </Container>
   );
 }
