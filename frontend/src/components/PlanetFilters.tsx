@@ -46,7 +46,7 @@ export default function PlanetFilters({ onFilterChange }: PlanetFiltersProps) {
         updateFilters(
           {
             minScore: 0.75,
-            hideIncomplete: false,
+            hideIncomplete: true,
             requireAtmosphere: true,
             climateZone: "all",
           },
@@ -58,10 +58,21 @@ export default function PlanetFilters({ onFilterChange }: PlanetFiltersProps) {
           {
             minScore: 0.3,
             hideIncomplete: false,
-            requireAtmosphere: false,
+            requireAtmosphere: true,
             climateZone: "tropical",
           },
           "paradise",
+        );
+        break;
+       case "arctic":
+        updateFilters(
+          {
+            minScore: 0.3,
+            hideIncomplete: false,
+            requireAtmosphere: true,
+            climateZone: "arctic",
+          },
+          "arctic",
         );
         break;
       case "fixer":
@@ -94,7 +105,7 @@ export default function PlanetFilters({ onFilterChange }: PlanetFiltersProps) {
                 : "outline-success"
             }
             onClick={() => applyLifestyle("move-in-ready")}
-            className="rounded-pill px-3 btn-sm fw-semibold"
+            className="rounded-pill px-3 btn-sm fw-semibold text-dark"
             style={{ backgroundColor: "#beebc4"}}
           >
             Move-In Ready
@@ -104,10 +115,20 @@ export default function PlanetFilters({ onFilterChange }: PlanetFiltersProps) {
               activeLifestyle === "paradise" ? "danger" : "outline-danger"
             }
             onClick={() => applyLifestyle("paradise")}
-            className="rounded-pill px-3 btn-sm fw-semibold"
+            className="rounded-pill px-3 btn-sm fw-semibold text-dark"
             style={{ backgroundColor: "#edd0cd"}}
           >
             Solar Paradise
+          </Button>
+          <Button
+            variant={
+              activeLifestyle === "arctic" ? "primary" : "outline-primary"
+            }
+            onClick={() => applyLifestyle("arctic")}
+            className="rounded-pill px-3 btn-sm fw-semibold text-dark"
+            style={{ backgroundColor: "#a4bbf1"}}
+          >
+            Arctic Wonderland
           </Button>
           <Button
             variant={

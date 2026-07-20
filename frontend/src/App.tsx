@@ -5,7 +5,6 @@ import Button from "react-bootstrap/Button";
 import usePlanets from "./hooks/usePlanets";
 import LandingView from "./views/LandingView";
 import DashboardView from "./views/DashboardView";
-import Favicon from "./components/Favicon";
 import './App.css'
 
 export default function App() {
@@ -18,7 +17,6 @@ export default function App() {
 
   return (
     <>
-      <Favicon />
       <div className="main-background">
         
         <LandingView showModal={showModal} handleCloseModal={handleCloseModal} />
