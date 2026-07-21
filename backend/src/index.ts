@@ -6,15 +6,31 @@ import { defaultPlanetInclude, formatPlanet } from "./api/planets.js";
 import prisma from "./lib/prisma.js";
 
 export const app = express();
+
+// Allowed origins for both local dev and production
+const allowedOrigins = [
+  "http://localhost:5173",
+  "http://localhost:3000",
+  process.env.FRONTEND_URL,
+].filter(Boolean) as string[];
+
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: (origin, callback) => {
+      // Allow requests with no origin (mobile apps, curl, if it's in our allowed list)
+      if (!origin || allowedOrigins.includes(origin) || process.env.NODE_ENV !== "production") {
+        callback(null, true);
+      } else {
+        callback(new Error(`CORS policy blocked access from origin: ${origin}`));
+      }
+    },
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   }),
 );
 
-const PORT = 3000;
+// Dynamic port assignment for Render
+const PORT = process.env.PORT ? parseInt(process.env.PORT, 10) : 3000;
 
 function isMainModule(): boolean {
   const entry = process.argv[1];
