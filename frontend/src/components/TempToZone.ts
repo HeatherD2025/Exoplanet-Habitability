@@ -1,4 +1,4 @@
-import { Planet } from "../types/planet";
+import type { Planet } from "../types/planet";
 import moveInReady from "../public/assets/moveInReady.webp";
 import arcticWonderland from "../public/assets/arcticWonderland.webp";
 import solarParadise from "../public/assets/solarParadise.webp";
@@ -23,7 +23,7 @@ interface CardVisuals {
 /**
  * Determines card visuals using the dynamic front-end climate logic.
  */
-export function getPlanetCardVisuals(planet: Planet): CardVisuals | undefined {
+export function getPlanetCardVisuals(planet: Planet): CardVisuals {
   const trait = planet.trait;
 
   if (!trait || trait.isIncompleteDataset) {
@@ -37,8 +37,8 @@ export function getPlanetCardVisuals(planet: Planet): CardVisuals | undefined {
 
   const tempF = trait.equilibriumTemperatureFahrenheit;
 
-  // 2. If temperature data is completely missing (unmeasured profiles)
-  if (!tempF) {
+  // 2. If temperature data is missing
+  if (tempF === undefined || tempF === null) {
     return {
       imageUrl: PLANET_IMAGES.fixer,
       badgeText: "Cosmic Fixer-Upper",
@@ -47,26 +47,7 @@ export function getPlanetCardVisuals(planet: Planet): CardVisuals | undefined {
     };
   }
 
-  if (tempF >= 20 && tempF <= 70) {
-    return {
-      imageUrl: PLANET_IMAGES.temperate,
-      badgeText: "Move-In Ready",
-      badgeColor: "#beebc4",
-      cardStyle: { border: "2px solid #beebc4" },
-    };
-  }
-
-  if (tempF >= 80) {
-    return {
-      imageUrl: PLANET_IMAGES.tropical,
-      badgeText: "Solar Paradise",
-      badgeColor: "#edd0cd", // Danger/pinkish red
-      cardStyle: { border: "2px solid #edd0cd" },
-    };
-  }
-
-  // tempF < 200
-  if (tempF <= 19) {
+  if (tempF < 20) {
     return {
       imageUrl: PLANET_IMAGES.arctic,
       badgeText: "Arctic Wonderland",
@@ -75,5 +56,19 @@ export function getPlanetCardVisuals(planet: Planet): CardVisuals | undefined {
     };
   }
 
-  return undefined;
+  if (tempF >= 20 && tempF < 80) {
+    return {
+      imageUrl: PLANET_IMAGES.temperate,
+      badgeText: "Move-In Ready",
+      badgeColor: "#beebc4",
+      cardStyle: { border: "2px solid #beebc4" },
+    };
+  }
+
+  return {
+    imageUrl: PLANET_IMAGES.tropical,
+    badgeText: "Solar Paradise",
+    badgeColor: "#edd0cd", // Danger/pinkish red
+    cardStyle: { border: "2px solid #edd0cd" },
+  };
 }
