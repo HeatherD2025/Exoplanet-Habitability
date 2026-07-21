@@ -1,9 +1,9 @@
 import type { Planet } from "../types/planet";
-import moveInReady from "../public/assets/moveInReady.webp";
-import arcticWonderland from "../public/assets/arcticWonderland.webp";
-import solarParadise from "../public/assets/solarParadise.webp";
-import unknownPlanet from "../public/assets/unknownPlanet.webp";
-import fixerUpper from "../public/assets/fixerUpper.webp";
+import moveInReady from "../assets/moveInReady.webp";
+import arcticWonderland from "../assets/arcticWonderland.webp";
+import solarParadise from "../assets/solarParadise.webp";
+import unknownPlanet from "../assets/unknownPlanet.webp";
+import fixerUpper from "../assets/fixerUpper.webp";
 
 const PLANET_IMAGES = {
   temperate: moveInReady,

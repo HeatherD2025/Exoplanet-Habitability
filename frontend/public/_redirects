@@ -1,2 +1,1 @@
-<!-- Tells Netlify to route all incoming page hits back to index.html so React Router can handle them smoothly -->
 /* /index.html 200
