@@ -1,5 +1,5 @@
-import linkedIn from "../public/assets/linkedIn.png";
-import HD_logo from "../public/assets/HD_logo.png";
+import linkedIn from "../assets/linkedIn.png";
+import HD_logo from "../assets/HD_logo.png";
 import AnimatedLogo from "./AnimatedLogo";
 import "../App.css";
 import { Modal } from "react-bootstrap";
