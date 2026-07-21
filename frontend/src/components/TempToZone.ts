@@ -1,14 +1,16 @@
-
+import { Planet } from "../types/planet";
 import moveInReady from "../public/assets/moveInReady.webp";
 import arcticWonderland from "../public/assets/arcticWonderland.webp";
 import solarParadise from "../public/assets/solarParadise.webp";
 import unknownPlanet from "../public/assets/unknownPlanet.webp";
+import fixerUpper from "../public/assets/fixerUpper.webp";
 
 const PLANET_IMAGES = {
   temperate: moveInReady,
   arctic: arcticWonderland,
   tropical: solarParadise,
   unknown: unknownPlanet,
+  fixer: fixerUpper,
 };
 
 interface CardVisuals {
@@ -27,7 +29,7 @@ export function getPlanetCardVisuals(planet: Planet): CardVisuals {
   if (!trait || trait.isIncompleteDataset) {
     return {
       imageUrl: PLANET_IMAGES.unknown,
-      badgeText: "Cosmic Fixer-Upper (Unverified)",
+      badgeText: "Unmeasured Sector (As-Is)",
       badgeColor: "#efe1b7",
       cardStyle: { border: "2px dashed #efe1b7" },
     };
@@ -38,8 +40,8 @@ export function getPlanetCardVisuals(planet: Planet): CardVisuals {
   // 2. If temperature data is completely missing (unmeasured profiles)
   if (!tempF) {
     return {
-      imageUrl: PLANET_IMAGES.unknown,
-      badgeText: "Unmeasured Sector (As-Is)",
+      imageUrl: PLANET_IMAGES.fixer,
+      badgeText: "Cosmic Fixer-Upper",
       badgeColor: "#efe1b7",
       cardStyle: { border: "2px dashed #efe1b7" },
     };
@@ -54,7 +56,7 @@ export function getPlanetCardVisuals(planet: Planet): CardVisuals {
     };
   }
 
-  if (tempF > 80) {
+  if (tempF >= 80) {
     return {
       imageUrl: PLANET_IMAGES.tropical,
       badgeText: "Solar Paradise",
@@ -64,10 +66,11 @@ export function getPlanetCardVisuals(planet: Planet): CardVisuals {
   }
 
   // tempF < 200
-  return {
-    imageUrl: PLANET_IMAGES.arctic,
-    badgeText: "Arctic Wonderland",
-    badgeColor: "#a4bbf1", // Primary blue
-    cardStyle: { border: "2px solid #a4bbf1" },
-  };
+  if (tempF <= 19)
+    return {
+      imageUrl: PLANET_IMAGES.arctic,
+      badgeText: "Arctic Wonderland",
+      badgeColor: "#a4bbf1", // Primary blue
+      cardStyle: { border: "2px solid #a4bbf1" },
+    };
 }
