@@ -23,7 +23,7 @@ interface CardVisuals {
 /**
  * Determines card visuals using the dynamic front-end climate logic.
  */
-export function getPlanetCardVisuals(planet: Planet): CardVisuals {
+export function getPlanetCardVisuals(planet: Planet): CardVisuals | undefined {
   const trait = planet.trait;
 
   if (!trait || trait.isIncompleteDataset) {
@@ -66,11 +66,14 @@ export function getPlanetCardVisuals(planet: Planet): CardVisuals {
   }
 
   // tempF < 200
-  if (tempF <= 19)
+  if (tempF <= 19) {
     return {
       imageUrl: PLANET_IMAGES.arctic,
       badgeText: "Arctic Wonderland",
       badgeColor: "#a4bbf1", // Primary blue
       cardStyle: { border: "2px solid #a4bbf1" },
     };
+  }
+
+  return undefined;
 }
