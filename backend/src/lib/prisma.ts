@@ -8,23 +8,29 @@ declare global {
   var prisma: PrismaClient | undefined;
 }
 
-// Local dev: Docker Postgres (LOCAL_DATABASE_URL). Production / Supabase: DATABASE_URL.
-const connectionString =
-  process.env.DATABASE_URL?.trim() || process.env.LOCAL_DATABASE_URL?.trim();
+// Prioritize DATABASE_URL (Supabase), fallback to LOCAL_DATABASE_URL for local Docker dev
+const connectionString = process.env.DATABASE_URL?.trim() || process.env.LOCAL_DATABASE_URL?.trim();
 
 if (!connectionString) {
-  throw new Error("DATABASE_URL is missing. Check your .env file!");
+  throw new Error("Neither DATABASE_URL nor LOCAL_DATABASE_URL is set!");
 }
 
-// Configure SSL explicitly for Supabase / production hosts
-const isCloudDb =
-  connectionString.includes("supabase.com") ||
-  process.env.NODE_ENV === "production";
+// Check if connecting to Supabase or cloud
+const isSupabase = connectionString.includes("supabase.co") || connectionString.includes("supabase.com");
 
-// 2026 Best Practice: Initialize a Pool for better connection management
+// Configure pg.Pool with explicit SSL settings for Supabase
 const pool = new pg.Pool({
   connectionString,
-  ssl: isCloudDb ? { rejectUnauthorized: false } : undefined,
+  ssl: isSupabase
+    ? {
+        rejectUnauthorized: false, // Bypasses self-signed / intermediate proxy cert chain checks
+      }
+    : false,
+});
+
+// Log pool errors to catch connection drops
+pool.on("error", (err) => {
+  console.error("Unexpected error on idle pg client", err);
 });
 
 const adapter = new PrismaPg(pool);
@@ -35,6 +41,5 @@ if (process.env.NODE_ENV !== "production") {
   globalThis.prisma = prisma;
 }
 
-// Use named export 'prisma' alongside default for easier importing
 export { prisma };
 export default prisma;
