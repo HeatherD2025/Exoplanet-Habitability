@@ -92,12 +92,12 @@ export default function PlanetFilters({ onFilterChange }: PlanetFiltersProps) {
   };
 
   return (
-    <div className="p-4 rounded-3 shadow-sm border mb-4" style={{ backgroundColor: "#b2b5b8"}}>
+    <div className="p-5 rounded-3 shadow-sm border mb-1" style={{ backgroundColor: "#b2b5b8"}}>
       <header className="mb-5">
               <h2 className="fw-bold tracking-tight text-dark pb-1">
                 Available Interstellar Listings
               </h2>
-              <p className="text-muted small">
+              <p className="fw-bold text-small">
                 Premium planetary sectors calculated via telemetry analysis. Adjust
                 custom options below.
               </p>
