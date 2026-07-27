@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Row, Col, Button, Form, Collapse } from "react-bootstrap";
-import '../App.css';
+import "../App.css";
 
 export interface FilterState {
   minScore: number;
@@ -64,7 +64,7 @@ export default function PlanetFilters({ onFilterChange }: PlanetFiltersProps) {
           "paradise",
         );
         break;
-       case "arctic":
+      case "arctic":
         updateFilters(
           {
             minScore: 0.3,
@@ -92,19 +92,25 @@ export default function PlanetFilters({ onFilterChange }: PlanetFiltersProps) {
   };
 
   return (
-    <div className="p-5 rounded-3 shadow-sm border mb-1" style={{ backgroundColor: "#b2b5b8"}}>
+    <div
+      className="p-5 rounded-3 shadow-sm border mb-1"
+      style={{ backgroundColor: "#0000" }}
+    >
       <header className="mb-5">
-              <h2 className="tracking-tight text-dark pb-1">
-                Available Interstellar Listings
-              </h2>
-              <p className="text-small text-dark">
-                Premium planetary sectors calculated via telemetry analysis. Adjust
-                custom options below.
-              </p>
-        </header>
+        <h2 className="tracking-tight text-light pb-1">
+          Available Interstellar Listings
+        </h2>
+        <p className="text-small text-light">
+          Premium planetary sectors calculated via telemetry analysis. Adjust
+          custom options below.
+        </p>
+      </header>
       <div className="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-2">
         <div className="d-flex align-items-center gap-2 flex-wrap">
-          <span className="fw-bold text-secondary text-uppercase small tracking-wider me-2" style={{ color: "black"}}>
+          <span
+            className="fw-bold text-secondary text-uppercase small tracking-wider me-2"
+            style={{ color: "white" }}
+          >
             Browse Lifestyles:
           </span>
           <Button
@@ -115,7 +121,7 @@ export default function PlanetFilters({ onFilterChange }: PlanetFiltersProps) {
             }
             onClick={() => applyLifestyle("move-in-ready")}
             className="rounded-pill px-3 btn-sm fw-semibold text-dark"
-            style={{ backgroundColor: "#beebc4"}}
+            style={{ backgroundColor: "#beebc4" }}
           >
             Move-In Ready
           </Button>
@@ -125,7 +131,7 @@ export default function PlanetFilters({ onFilterChange }: PlanetFiltersProps) {
             }
             onClick={() => applyLifestyle("paradise")}
             className="rounded-pill px-3 btn-sm fw-semibold text-dark"
-            style={{ backgroundColor: "#edd0cd"}}
+            style={{ backgroundColor: "#edd0cd" }}
           >
             Solar Paradise
           </Button>
@@ -135,7 +141,7 @@ export default function PlanetFilters({ onFilterChange }: PlanetFiltersProps) {
             }
             onClick={() => applyLifestyle("arctic")}
             className="rounded-pill px-3 btn-sm fw-semibold text-dark"
-            style={{ backgroundColor: "#a4bbf1"}}
+            style={{ backgroundColor: "#a4bbf1" }}
           >
             Arctic Wonderland
           </Button>
@@ -145,7 +151,7 @@ export default function PlanetFilters({ onFilterChange }: PlanetFiltersProps) {
             }
             onClick={() => applyLifestyle("fixer")}
             className="rounded-pill px-3 btn-sm fw-semibold text-dark"
-            style={{ backgroundColor: "#efe1b7"}}
+            style={{ backgroundColor: "#efe1b7" }}
           >
             Fixer-Upper (As-Is)
           </Button>
@@ -156,7 +162,7 @@ export default function PlanetFilters({ onFilterChange }: PlanetFiltersProps) {
           onClick={() => setOpen(!open)}
           aria-controls="advanced-search-panel"
           aria-expanded={open}
-          className="text-decoration-none text-muted fw-semibold p-0 small"
+          className="text-decoration-none text-muted fw-semibold p-0 small text-light"
         >
           {open ? "Hide Advanced Options ▴" : "Configure Custom Amenities ▾"}
         </Button>
@@ -168,9 +174,9 @@ export default function PlanetFilters({ onFilterChange }: PlanetFiltersProps) {
           <Row className="g-3">
             <Col xs={12} md={4}>
               <Form.Group>
-                <Form.Label className="fw-semibold text-secondary small mb-1">
+                <Form.Label className="fw-semibold text-secondary small mb-1 text-light">
                   Minimum Neighborhood Grade:{" "}
-                  <span className="text-dark">
+                  <span className="text-light">
                     {(filters.minScore * 100).toFixed(0)}% Match
                   </span>
                 </Form.Label>
@@ -191,7 +197,7 @@ export default function PlanetFilters({ onFilterChange }: PlanetFiltersProps) {
 
             <Col xs={12} sm={6} md={4}>
               <Form.Group>
-                <Form.Label className="fw-semibold text-secondary small mb-1">
+                <Form.Label className="fw-semibold text-secondary text-light small mb-1">
                   Climate Comfort Zone
                 </Form.Label>
                 <Form.Select
@@ -221,7 +227,7 @@ export default function PlanetFilters({ onFilterChange }: PlanetFiltersProps) {
                 type="switch"
                 id="atmosphere-switch"
                 label="Air Conditioning (Retained Atmosphere)"
-                className="small fw-semibold text-secondary"
+                className="small fw-semibold text-secondary text-light"
                 checked={filters.requireAtmosphere}
                 onChange={(e) =>
                   updateFilters({ requireAtmosphere: e.target.checked }, null)
@@ -231,7 +237,7 @@ export default function PlanetFilters({ onFilterChange }: PlanetFiltersProps) {
                 type="switch"
                 id="incomplete-switch"
                 label="Verified Inspection Records Only"
-                className="small fw-semibold text-secondary"
+                className="small fw-semibold text-secondary text-light"
                 checked={filters.hideIncomplete}
                 onChange={(e) =>
                   updateFilters({ hideIncomplete: e.target.checked }, null)
