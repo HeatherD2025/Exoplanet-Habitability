@@ -2,14 +2,13 @@ import type { Planet } from "../types/planet";
 import moveInReady from "../assets/moveInReady.webp";
 import arcticWonderland from "../assets/arcticWonderland.webp";
 import solarParadise from "../assets/solarParadise.webp";
-import unknownPlanet from "../assets/unknownPlanet.webp";
+
 import fixerUpper from "../assets/fixerUpper.webp";
 
 const PLANET_IMAGES = {
   temperate: moveInReady,
   arctic: arcticWonderland,
   tropical: solarParadise,
-  unknown: unknownPlanet,
   fixer: fixerUpper,
 };
 
@@ -25,20 +24,14 @@ interface CardVisuals {
  */
 export function getPlanetCardVisuals(planet: Planet): CardVisuals {
   const trait = planet.trait;
+  const tempF = trait?.equilibriumTemperatureFahrenheit;
 
-  if (!trait || trait.isIncompleteDataset) {
-    return {
-      imageUrl: PLANET_IMAGES.unknown,
-      badgeText: "Unmeasured Sector (As-Is)",
-      badgeColor: "#efe1b7",
-      cardStyle: { border: "2px dashed #efe1b7" },
-    };
-  }
-
-  const tempF = trait.equilibriumTemperatureFahrenheit;
-
-  // 2. If temperature data is missing
-  if (tempF === undefined || tempF === null) {
+  if (
+    !trait ||
+    trait.isIncompleteDataset ||
+    tempF === undefined ||
+    tempF === null
+  ) {
     return {
       imageUrl: PLANET_IMAGES.fixer,
       badgeText: "Cosmic Fixer-Upper",
