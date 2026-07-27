@@ -159,6 +159,11 @@
   height: 100%;
 }
 
+.dashboard-header {
+  color: black;
+  z-index: 1;
+}
+
 /* Layout layout rules for your footer links */
 .footer-links {
   display: flex;

@@ -58,13 +58,15 @@ export default function DashboardView({ planets }: DashboardViewProps) {
   return (
       <Container className="planet-filter-and-grid-container">
         <header className="mb-5">
-          <h2 className="fw-bold tracking-tight text-dark pb-1">
-            Available Interstellar Listings
-          </h2>
-          <p className="text-muted small">
-            Premium planetary sectors calculated via telemetry analysis. Adjust
-            custom options below.
-          </p>
+          <div className="dashboard-header">
+              <h2 className="fw-bold tracking-tight text-dark pb-1">
+                Available Interstellar Listings
+              </h2>
+              <p className="text-muted small">
+                Premium planetary sectors calculated via telemetry analysis. Adjust
+                custom options below.
+              </p>
+          </div>
         </header>
 
         <PlanetFilters onFilterChange={setActiveFilters} />
