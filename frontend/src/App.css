@@ -15,7 +15,7 @@
   border-radius: 8px;
   width: 80%;
   max-width: 600px;
-   background-color: rgb(13, 22, 55);
+  background-color: rgb(13, 22, 55);
 }
 
 .close-button {
@@ -98,12 +98,11 @@
   text-decoration: none;
   text-rendering: geometricprecision;
   text-transform: uppercase;
-  border-bottom: none; 
+  border-bottom: none;
   background-color: rgb(13, 22, 55);
   color: white;
   font-family: Clarkson, Helvetica, sans-serif;
 }
-
 
 @keyframes shipFloat {
   0%,
@@ -136,7 +135,6 @@
     opacity: 0.85;
   }
 }
-
 
 .animated-logo-container {
   width: 100%;
@@ -191,22 +189,23 @@
 .front-flame {
   animation:
     shipFloat 4s ease-in-out infinite,
-    thrusterFlicker1 0.20s ease-in-out infinite alternate;
+    thrusterFlicker1 0.2s ease-in-out infinite alternate;
 }
 
 .back-flames {
   animation:
     shipFloat 4s ease-in-out infinite,
-    thrusterFlicker2 0.20s ease-in-out infinite alternate;
+    thrusterFlicker2 0.2s ease-in-out infinite alternate;
 }
 
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   width: 100%;
   min-height: 100vh;
   background-color: black;
-  color: white; 
+  color: white;
   scroll-behavior: smooth;
   scroll-padding-top: 2rem;
 }
@@ -219,7 +218,8 @@ html, body {
   background-color: black;
 }
 
-.landing-view, .main-header {
+.landing-view,
+.main-header {
   width: 100%;
   background-color: black;
   margin: 0;
@@ -235,6 +235,7 @@ html, body {
   flex-grow: 1;
   padding: 3rem 1.5rem;
   box-sizing: border-box;
+  border-radius: 10px 10px 10px 10px;
 }
 
 .main-background {
@@ -243,6 +244,9 @@ html, body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  background-image: url("./assets/backgroundImage.webp");
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
 }
-
-
