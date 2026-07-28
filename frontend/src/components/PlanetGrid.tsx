@@ -2,16 +2,16 @@ import Container from "react-bootstrap/Container";
 import { Row, Col, Card, Badge, CardHeader } from "react-bootstrap";
 import type { Planet } from "../types/planet";
 import { getPlanetCardVisuals } from "./TempToZone";
-import PlanetDetailModal from "./PlanetDetailModal";
+// import PlanetDetailModal from "./PlanetDetailModal";
 
 interface PlanetGridProps {
   planets: Planet[];
 }
 
-interface PlanetDetailModalProps {
-  showModal: boolean;
-  hideModal: () => void;
-}
+// interface PlanetDetailModalProps {
+//   showModal: boolean;
+//   hideModal: () => void;
+// }
 
 function getAtmosphereLabel(
   confidence: string | null,
@@ -73,8 +73,7 @@ function PlanetGrid({ planets }: PlanetGridProps) {
           const habitabilityScore = planet.trait?.habitabilityScore ?? 0;
 
           // Extract your dynamic webp assets and style settings here
-          const { imageUrl, cardStyle } =
-            getPlanetCardVisuals(planet);
+          const { imageUrl, cardStyle } = getPlanetCardVisuals(planet);
 
           return (
             <Col key={planet.id}>
@@ -157,15 +156,9 @@ function PlanetGrid({ planets }: PlanetGridProps) {
                       {atmos.note}
                     </div>
                   </div>
-
                 </Card.Body>
                 <Card.Footer>
-                  <button
-                  onClick={showModal}
-                    
-                  >
-                    View this listing
-                  </button>
+                  <button onClick={showModal}>View this listing</button>
                 </Card.Footer>
               </Card>
             </Col>
