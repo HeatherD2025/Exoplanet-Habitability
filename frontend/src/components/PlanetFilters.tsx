@@ -97,12 +97,12 @@ export default function PlanetFilters({ onFilterChange }: PlanetFiltersProps) {
         <h2 className="tracking-tight text-light p-2">
           Available Interstellar Listings
         </h2>
-        <p className="text-small text-light mb-1">
+        <p className="text-small text-light mb-5">
           Premium planetary sectors calculated via telemetry analysis. Adjust
           custom options below.
         </p>
       </header>
-      <div className="d-flex align-items-center justify-content-between flex-wrap gap-2 m-2">
+      <div className="d-flex align-items-center justify-content-between flex-wrap gap-2 m-8">
         <div className="d-flex align-items-center gap-2 flex-wrap">
           <span className="text-secondary text-light text-uppercase small tracking-wider me-2 pl-2">
             Browse Lifestyles:
