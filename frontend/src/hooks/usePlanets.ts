@@ -8,7 +8,7 @@ export default function usePlanets() {
   const [error, setError] = useState<string | null>(null);
   const [hasMore, setHasMore] = useState<boolean>(true);
 
-  const BATCH_SIZE = 250;
+  const BATCH_SIZE = 300;
 
   const fetchPlanets = useCallback(
     async (isInitial: boolean = false) => {
