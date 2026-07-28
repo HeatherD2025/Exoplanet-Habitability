@@ -56,19 +56,18 @@ export default function DashboardView({ planets }: DashboardViewProps) {
   });
 
   return (
-      <Container className="planet-filter-and-grid-container m-2">
+    <Container className="planet-filter-and-grid-container m-2 p-2">
+      <PlanetFilters onFilterChange={setActiveFilters} />
 
-        <PlanetFilters onFilterChange={setActiveFilters} />
-
-        {/* Grid response output layout */}
-        {filteredPlanets.length === 0 ? (
-          <Alert variant="info" className="text-center py-5 border-dashed">
-            No planetary sectors found matching these target custom criteria. Try
-            scaling down your property inspection preferences!
-          </Alert>
-        ) : (
-          <PlanetGrid planets={filteredPlanets} />
-        )}
-      </Container>
+      {/* Grid response output layout */}
+      {filteredPlanets.length === 0 ? (
+        <Alert variant="info" className="text-center py-5 border-dashed">
+          No planetary sectors found matching these target custom criteria. Try
+          scaling down your property inspection preferences!
+        </Alert>
+      ) : (
+        <PlanetGrid planets={filteredPlanets} />
+      )}
+    </Container>
   );
 }

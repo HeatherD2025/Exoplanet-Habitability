@@ -93,7 +93,7 @@ export default function PlanetFilters({ onFilterChange }: PlanetFiltersProps) {
 
   return (
     <div className="rounded-3 shadow-sm bg-dark border m-2">
-      <header className="mb-5 pt-1">
+      <header className="m-2 ">
         <h2 className="tracking-tight text-light p-1">
           Available Interstellar Listings
         </h2>
