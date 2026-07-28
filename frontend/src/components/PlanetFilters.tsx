@@ -92,9 +92,7 @@ export default function PlanetFilters({ onFilterChange }: PlanetFiltersProps) {
   };
 
   return (
-    <div
-      className="p-4 rounded-3 shadow-sm bg-dark border m-2"
-    >
+    <div className="p-3 rounded-3 shadow-sm bg-dark border m-4">
       <header className="mb-5">
         <h2 className="tracking-tight text-light pb-1">
           Available Interstellar Listings
@@ -158,7 +156,7 @@ export default function PlanetFilters({ onFilterChange }: PlanetFiltersProps) {
 
         <Button
           variant="link"
-          style={{color: "white"}}
+          style={{ color: "white" }}
           onClick={() => setOpen(!open)}
           aria-controls="advanced-search-panel"
           aria-expanded={open}
