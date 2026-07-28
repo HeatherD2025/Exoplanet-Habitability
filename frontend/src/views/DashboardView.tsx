@@ -56,7 +56,7 @@ export default function DashboardView({ planets }: DashboardViewProps) {
   });
 
   return (
-    <Container className="planet-filter-and-grid-container m-2 p-2">
+    <Container className="planet-filter-and-grid-container m-3 p-2">
       <PlanetFilters onFilterChange={setActiveFilters} />
 
       {/* Grid response output layout */}
