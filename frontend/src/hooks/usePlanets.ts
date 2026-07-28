@@ -8,7 +8,7 @@ export default function usePlanets() {
   const [error, setError] = useState<string | null>(null);
   const [hasMore, setHasMore] = useState<boolean>(true);
 
-  const BATCH_SIZE = 350;
+  const BATCH_SIZE = 250;
 
   const fetchPlanets = useCallback(
     async (isInitial: boolean = false) => {
@@ -40,7 +40,7 @@ export default function usePlanets() {
           setPlanets((prev) => [...prev, ...data]);
         }
 
-        if (data.length < BATCH_SIZE) {
+        if (data.length < ) {
           setHasMore(false);
         }
       } catch (err: unknown) {
