@@ -2,9 +2,15 @@ import Container from "react-bootstrap/Container";
 import { Row, Col, Card, Badge, CardHeader } from "react-bootstrap";
 import type { Planet } from "../types/planet";
 import { getPlanetCardVisuals } from "./TempToZone";
+import PlanetDetailModal from "./PlanetDetailModal";
 
 interface PlanetGridProps {
   planets: Planet[];
+}
+
+interface PlanetDetailModalProps {
+  showModal: boolean;
+  hideModal: () => void;
 }
 
 function getAtmosphereLabel(
@@ -153,6 +159,14 @@ function PlanetGrid({ planets }: PlanetGridProps) {
                   </div>
 
                 </Card.Body>
+                <Card.Footer>
+                  <button
+                  onClick={showModal}
+                    
+                  >
+                    View this listing
+                  </button>
+                </Card.Footer>
               </Card>
             </Col>
           );

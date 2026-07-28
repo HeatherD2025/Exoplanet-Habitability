@@ -159,7 +159,6 @@
   height: 100%;
 }
 
-
 /* Layout layout rules for your footer links */
 .footer-links {
   display: flex;
@@ -221,6 +220,17 @@ body {
   flex-direction: column;
   background-color: black;
 }
+.main-background {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-image: url("./assets/backgroundImage.webp");
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+}
 
 .landing-view,
 .main-header {
@@ -241,19 +251,10 @@ body {
   margin: auto;
   min-height: 50vh;
   flex-grow: 1;
-  padding: 3rem 1.5rem;
   box-sizing: border-box;
   border-radius: 10px 10px 10px 10px;
 }
 
-.main-background {
-  width: 100%;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  background-image: url("./assets/backgroundImage.webp");
-  background-size: cover;
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
+.advanced-search-dropdown-button {
+  color: white !important;
 }

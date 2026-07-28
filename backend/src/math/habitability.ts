@@ -536,12 +536,12 @@ export function calculateHabitabilityIndex(
         eqTemp < 175 ? (eqTemp - 150) / 25 : 1.0 - (eqTemp - 270) / 80;
     }
   } else {
-    // Keep neutral score, but flag the gap
+    // Keeps neutral score, but flag the data gap
     tempScore = 0.5;
     isIncomplete = true;
   }
 
-  // 2. Evaluate Relative Surface Gravity (30% Weight)
+  // Evaluate Relative Surface Gravity (30% Weight)
   const gravityResult = calculateRelativeSurfaceGravity(mass, radius);
 
   if (
@@ -562,7 +562,7 @@ export function calculateHabitabilityIndex(
     isIncomplete = true;
   }
 
-  // 3. Compute final weighted average index
+  // Compute final weighted average index
   const rawScore = tempScore * 0.4 + atmosphereScore * 0.3 + gravityScore * 0.3;
   const finalScore = Math.max(0, Math.min(1, Number(rawScore.toFixed(2))));
 

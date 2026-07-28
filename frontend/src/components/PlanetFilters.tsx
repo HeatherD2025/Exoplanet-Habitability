@@ -93,7 +93,7 @@ export default function PlanetFilters({ onFilterChange }: PlanetFiltersProps) {
 
   return (
     <div className="rounded-3 shadow-sm bg-dark border m-2">
-      <header>
+      <header className="mt-2">
         <h2 className="tracking-tight text-light p-3">
           Available Interstellar Listings
         </h2>
@@ -153,11 +153,10 @@ export default function PlanetFilters({ onFilterChange }: PlanetFiltersProps) {
 
         <Button
           variant="link"
-          style={{ color: "white" }}
           onClick={() => setOpen(!open)}
           aria-controls="advanced-search-panel"
           aria-expanded={open}
-          className="text-muted small text-light"
+          className="advanced-search-dropdown-button text-uppercase"
         >
           {open ? "Hide Advanced Options ▴" : "Configure Custom Amenities ▾"}
         </Button>
@@ -168,7 +167,7 @@ export default function PlanetFilters({ onFilterChange }: PlanetFiltersProps) {
           <hr className="my-3 opacity-25" />
           <Row className="g-3">
             <Col xs={12} md={4}>
-              <Form.Group style={{ color: "white" }}>
+              <Form.Group style={{ color: "white" }} className="p-2">
                 <Form.Label className="text-secondary small mb-1 text-light">
                   Minimum Neighborhood Grade:{" "}
                   <span className="text-light">
@@ -222,7 +221,7 @@ export default function PlanetFilters({ onFilterChange }: PlanetFiltersProps) {
                 type="switch"
                 id="atmosphere-switch"
                 label="Air Conditioning (Retained Atmosphere)"
-                className="small fw-semibold text-secondary text-light"
+                className="small text-secondary text-light"
                 checked={filters.requireAtmosphere}
                 onChange={(e) =>
                   updateFilters({ requireAtmosphere: e.target.checked }, null)
@@ -232,7 +231,7 @@ export default function PlanetFilters({ onFilterChange }: PlanetFiltersProps) {
                 type="switch"
                 id="incomplete-switch"
                 label="Verified Inspection Records Only"
-                className="small fw-semibold text-secondary text-light"
+                className="small text-secondary text-light"
                 checked={filters.hideIncomplete}
                 onChange={(e) =>
                   updateFilters({ hideIncomplete: e.target.checked }, null)
