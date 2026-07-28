@@ -93,7 +93,7 @@ export default function PlanetFilters({ onFilterChange }: PlanetFiltersProps) {
 
   return (
     <div
-      className="p-5 rounded-3 shadow-sm bg-dark border mb-1"
+      className="p-4 rounded-3 shadow-sm bg-dark border m-1"
     >
       <header className="mb-5">
         <h2 className="tracking-tight text-light pb-1">
@@ -162,7 +162,7 @@ export default function PlanetFilters({ onFilterChange }: PlanetFiltersProps) {
           onClick={() => setOpen(!open)}
           aria-controls="advanced-search-panel"
           aria-expanded={open}
-          className="text-decoration-none text-muted fw-semibold p-0 small text-light"
+          className="text-muted small text-light"
         >
           {open ? "Hide Advanced Options ▴" : "Configure Custom Amenities ▾"}
         </Button>
