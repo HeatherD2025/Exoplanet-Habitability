@@ -93,7 +93,7 @@ export default function PlanetFilters({ onFilterChange }: PlanetFiltersProps) {
 
   return (
     <div
-      className="p-4 rounded-3 shadow-sm bg-dark border m-1"
+      className="p-4 rounded-3 shadow-sm bg-dark border m-2"
     >
       <header className="mb-5">
         <h2 className="tracking-tight text-light pb-1">
