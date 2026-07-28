@@ -92,9 +92,9 @@ export default function PlanetFilters({ onFilterChange }: PlanetFiltersProps) {
   };
 
   return (
-    <div className="p-2 rounded-3 shadow-sm bg-dark border m-4">
+    <div className="rounded-3 shadow-sm bg-dark border m-2">
       <header className="mb-5 pt-1">
-        <h2 className="tracking-tight text-light pb-1">
+        <h2 className="tracking-tight text-light pb-1 pt-1">
           Available Interstellar Listings
         </h2>
         <p className="text-small text-light">
@@ -104,9 +104,7 @@ export default function PlanetFilters({ onFilterChange }: PlanetFiltersProps) {
       </header>
       <div className="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-2">
         <div className="d-flex align-items-center gap-2 flex-wrap">
-          <span
-            className="text-secondary text-light text-uppercase small tracking-wider me-2"
-          >
+          <span className="text-secondary text-light text-uppercase small tracking-wider me-2 p-1">
             Browse Lifestyles:
           </span>
           <Button
@@ -170,7 +168,7 @@ export default function PlanetFilters({ onFilterChange }: PlanetFiltersProps) {
           <hr className="my-3 opacity-25" />
           <Row className="g-3">
             <Col xs={12} md={4}>
-              <Form.Group style={{color: "white"}}>
+              <Form.Group style={{ color: "white" }}>
                 <Form.Label className="text-secondary small mb-1 text-light">
                   Minimum Neighborhood Grade:{" "}
                   <span className="text-light">
