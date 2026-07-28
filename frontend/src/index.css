@@ -62,8 +62,29 @@
   box-sizing: border-box;
 }
 
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100dvh; 
+  z-index: -1;
+  scroll-behavior: smooth;
+  scroll-padding-top: 2rem;
+  background-image: url('/path-to-space-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  
+  /* Prevents scrolling performance lag on mobile */
+  pointer-events: none; 
+}
+
 body {
+  min-height: 100dvh;
   margin: 0;
+  background: transparent;
 }
 
 h1,
