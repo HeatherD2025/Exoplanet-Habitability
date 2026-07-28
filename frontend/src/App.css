@@ -207,7 +207,7 @@ body {
   padding: 0;
   width: 100%;
   min-height: 100vh;
-  background-color: black;
+  background-color: #100310;;
   color: white;
   scroll-behavior: smooth;
   scroll-padding-top: 2rem;
@@ -223,6 +223,7 @@ body {
 .main-background {
   width: 100%;
   min-height: 100vh;
+  overflow-x: hidden;
   display: flex;
   flex-direction: column;
   background-image: url("./assets/backgroundImage.webp");

@@ -156,7 +156,7 @@ export default function PlanetFilters({ onFilterChange }: PlanetFiltersProps) {
           onClick={() => setOpen(!open)}
           aria-controls="advanced-search-panel"
           aria-expanded={open}
-          className="advanced-search-dropdown-button text-uppercase"
+          className="advanced-search-dropdown-button text-secondary text-light text-uppercase"
         >
           {open ? "Hide Advanced Options ▴" : "Configure Custom Amenities ▾"}
         </Button>
