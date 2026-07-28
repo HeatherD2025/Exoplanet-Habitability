@@ -92,8 +92,8 @@ export default function PlanetFilters({ onFilterChange }: PlanetFiltersProps) {
   };
 
   return (
-    <div className="p-3 rounded-3 shadow-sm bg-dark border m-4">
-      <header className="mb-5">
+    <div className="p-2 rounded-3 shadow-sm bg-dark border m-4">
+      <header className="mb-5 pt-1">
         <h2 className="tracking-tight text-light pb-1">
           Available Interstellar Listings
         </h2>
@@ -105,8 +105,7 @@ export default function PlanetFilters({ onFilterChange }: PlanetFiltersProps) {
       <div className="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-2">
         <div className="d-flex align-items-center gap-2 flex-wrap">
           <span
-            className="fw-bold text-secondary text-uppercase small tracking-wider me-2"
-            style={{ color: "white" }}
+            className="text-secondary text-light text-uppercase small tracking-wider me-2"
           >
             Browse Lifestyles:
           </span>
@@ -171,8 +170,8 @@ export default function PlanetFilters({ onFilterChange }: PlanetFiltersProps) {
           <hr className="my-3 opacity-25" />
           <Row className="g-3">
             <Col xs={12} md={4}>
-              <Form.Group>
-                <Form.Label className="fw-semibold text-secondary small mb-1 text-light">
+              <Form.Group style={{color: "white"}}>
+                <Form.Label className="text-secondary small mb-1 text-light">
                   Minimum Neighborhood Grade:{" "}
                   <span className="text-light">
                     {(filters.minScore * 100).toFixed(0)}% Match
@@ -195,7 +194,7 @@ export default function PlanetFilters({ onFilterChange }: PlanetFiltersProps) {
 
             <Col xs={12} sm={6} md={4}>
               <Form.Group>
-                <Form.Label className="fw-semibold text-secondary text-light small mb-1">
+                <Form.Label className="text-secondary text-light small mb-1">
                   Climate Comfort Zone
                 </Form.Label>
                 <Form.Select
