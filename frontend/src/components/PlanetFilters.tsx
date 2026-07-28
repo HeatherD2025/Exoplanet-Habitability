@@ -158,6 +158,7 @@ export default function PlanetFilters({ onFilterChange }: PlanetFiltersProps) {
 
         <Button
           variant="link"
+          style={{color: "white"}}
           onClick={() => setOpen(!open)}
           aria-controls="advanced-search-panel"
           aria-expanded={open}
