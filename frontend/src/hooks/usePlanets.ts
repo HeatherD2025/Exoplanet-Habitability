@@ -40,7 +40,7 @@ export default function usePlanets() {
           setPlanets((prev) => [...prev, ...data]);
         }
 
-        if (data.length < ) {
+        if (data.length < BATCH_SIZE) {
           setHasMore(false);
         }
       } catch (err: unknown) {
