@@ -207,7 +207,7 @@ body {
   padding: 0;
   width: 100%;
   min-height: 100vh;
-  background-color: #100310;;
+  background-color: #100310;
   color: white;
   scroll-behavior: smooth;
   scroll-padding-top: 2rem;
@@ -258,4 +258,6 @@ body {
 
 .advanced-search-dropdown-button {
   color: white !important;
+  text-decoration: none;
+  font-size: 0.875em;
 }
