@@ -94,7 +94,7 @@ export default function PlanetFilters({ onFilterChange }: PlanetFiltersProps) {
   return (
     <div className="rounded-3 shadow-sm bg-dark border m-2">
       <header className="mb-5 pt-1">
-        <h2 className="tracking-tight text-light pb-1 pt-1">
+        <h2 className="tracking-tight text-light p-1">
           Available Interstellar Listings
         </h2>
         <p className="text-small text-light">
@@ -104,7 +104,7 @@ export default function PlanetFilters({ onFilterChange }: PlanetFiltersProps) {
       </header>
       <div className="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-2">
         <div className="d-flex align-items-center gap-2 flex-wrap">
-          <span className="text-secondary text-light text-uppercase small tracking-wider me-2 p-1">
+          <span className="text-secondary text-light text-uppercase small tracking-wider me-2 pl-2">
             Browse Lifestyles:
           </span>
           <Button
