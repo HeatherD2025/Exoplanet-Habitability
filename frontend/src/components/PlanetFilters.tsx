@@ -97,7 +97,7 @@ export default function PlanetFilters({ onFilterChange }: PlanetFiltersProps) {
         <h2 className="tracking-tight text-light p-3">
           Available Interstellar Listings
         </h2>
-        <p className="text-small text-light mb-2">
+        <p className="text-small text-light mb-1">
           Premium planetary sectors calculated via telemetry analysis. Adjust
           custom options below.
         </p>
@@ -156,7 +156,7 @@ export default function PlanetFilters({ onFilterChange }: PlanetFiltersProps) {
           onClick={() => setOpen(!open)}
           aria-controls="advanced-search-panel"
           aria-expanded={open}
-          className="advanced-search-dropdown-button text-secondary text-light text-uppercase"
+          className="advanced-search-dropdown-button text-secondary text-light text-uppercase pl-4"
         >
           {open ? "Hide Advanced Options ▴" : "Configure Custom Amenities ▾"}
         </Button>
@@ -165,9 +165,9 @@ export default function PlanetFilters({ onFilterChange }: PlanetFiltersProps) {
       <Collapse in={open}>
         <div id="advanced-search-panel">
           <hr className="my-3 opacity-25" />
-          <Row className="g-3">
+          <Row className="g-3 p-3">
             <Col xs={12} md={4}>
-              <Form.Group style={{ color: "white" }} className="p-2">
+              <Form.Group style={{ color: "white" }}>
                 <Form.Label className="text-secondary small mb-1 text-light">
                   Minimum Neighborhood Grade:{" "}
                   <span className="text-light">
