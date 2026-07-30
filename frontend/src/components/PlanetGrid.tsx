@@ -159,7 +159,11 @@ function PlanetGrid({ planets }: PlanetGridProps) {
                   </div>
                 </Card.Body>
                 <Card.Footer>
-                  <button disabled className="listing-details-button">
+                  <button
+                    disabled
+                    className="listing-details-button"
+                    style={{ color: "black" }}
+                  >
                     View this listing (coming soon)
                   </button>
                 </Card.Footer>
