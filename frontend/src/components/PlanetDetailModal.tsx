@@ -1,16 +1,16 @@
 import "../App.css";
 import { Modal } from "react-bootstrap";
+import type { Planet } from "../types/planet";
 
 
 interface PlanetDetailModalProps {
+  planets: Planet[];
   showModal: boolean;
   hideModal: () => void;
 }
 
-//   minScore: number;
-//   hideIncomplete: boolean;
-//   requireAtmosphere: boolean;
-//   climateZone: temperate, tripical, arctic
+// use planetary radius to compare size to earth (Small, Med, Large lot?)
+// use orbital distance to compare to earth??
 
 export default function PlanetDetailModal({
   showModal,

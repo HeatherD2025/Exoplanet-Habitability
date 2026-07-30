@@ -8,11 +8,6 @@ interface PlanetGridProps {
   planets: Planet[];
 }
 
-// interface PlanetDetailModalProps {
-//   showModal: boolean;
-//   hideModal: () => void;
-// }
-
 function getAtmosphereLabel(
   confidence: string | null,
   canRetain: boolean,
@@ -56,10 +51,16 @@ function getAtmosphereLabel(
 }
 
 function PlanetGrid({ planets }: PlanetGridProps) {
+  const sortedPlanets = [...planets].sort((a, b) => {
+    const scoreA = a.trait?.habitabilityScore ?? 0;
+    const scoreB = b.trait?.habitabilityScore ?? 0;
+    return scoreB - scoreA;
+  });
+
   return (
     <Container className="mt-4">
       <Row className="row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-        {planets.map((planet) => {
+        {sortedPlanets.map((planet) => {
           const canRetain =
             planet.trait && "canRetain" in planet.trait
               ? ((planet.trait as { canRetain?: boolean }).canRetain ?? false)
@@ -158,7 +159,9 @@ function PlanetGrid({ planets }: PlanetGridProps) {
                   </div>
                 </Card.Body>
                 <Card.Footer>
-                  <button disabled>View this listing (coming soon)</button>
+                  <button disabled className="listing-details-button">
+                    View this listing (coming soon)
+                  </button>
                 </Card.Footer>
               </Card>
             </Col>

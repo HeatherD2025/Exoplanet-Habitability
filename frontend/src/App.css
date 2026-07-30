@@ -201,7 +201,6 @@
     thrusterFlicker2 0.2s ease-in-out infinite alternate;
 }
 
-
 #root {
   width: 100%;
   min-height: 100vh;
@@ -232,7 +231,6 @@
 
 .dashboard-container {
   background: rgba(255, 255, 255, 0.18);
-  border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   -webkit-backdrop-filter: blur(8.1px);
   backdrop-filter: blur(8.1px);
@@ -253,4 +251,10 @@
   color: white !important;
   text-decoration: none;
   font-size: 0.875em;
+}
+
+.listing-details-button {
+  color: #0000;
+  border-radius: 10px 10px 10px 10px;
+  font-size: small;
 }
