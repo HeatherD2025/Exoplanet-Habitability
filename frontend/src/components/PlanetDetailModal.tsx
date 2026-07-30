@@ -10,7 +10,15 @@ interface PlanetDetailModalProps {
 }
 
 // use planetary radius to compare size to earth (Small, Med, Large lot?)
-// use orbital distance to compare to earth??
+
+function formatOrbitalDistance(au: number | null | undefined): string {
+  if (!au || au <= 0) return "Orbital data unconfirmed";
+  if (au < 0.1)
+    return `${au.toFixed(3)} AU (Extremely tight orbit, close to host star)`;
+  if (au >= 0.8 && au <= 1.5)
+    return `${au.toFixed(2)} AU (Earth-like orbital distance)`;
+  return `${au.toFixed(2)} AU (${au > 1 ? `${au.toFixed(1)}x further than Earth` : `${(1 / au).toFixed(1)}x closer than Earth`})`;
+}
 
 export default function PlanetDetailModal({
   planet,
@@ -18,7 +26,7 @@ export default function PlanetDetailModal({
   hideModal,
 }: PlanetDetailModalProps) {
   const habitabilityScore = planet?.trait?.habitabilityScore ?? 0;
-  const orbitalDistance = planet?.trait?.orbitalDistance ?? 0
+  const orbitalDistance = planet?.trait?.orbitalDistance;
 
   const { imageUrl, cardStyle } = planet
     ? getPlanetCardVisuals(planet)
@@ -26,10 +34,17 @@ export default function PlanetDetailModal({
 
   return (
     <>
-      <Modal show={showModal} onHide={hideModal} size="lg" centered style={{...cardStyle}}>
+      <Modal
+        show={showModal}
+        onHide={hideModal}
+        size="lg"
+        centered
+        style={{ ...cardStyle }}
+      >
         <Modal.Header>
-          <Modal.Title key={planet?.name ?? "planet-detail-modal"} />
-
+          <Modal.Title> 
+            <span>key={planet?.name ?? "planet-detail-modal"}</span>
+          </Modal.Title>
           <div
             className="position-relative pt-2"
             style={{ height: "300px", overflow: "hidden" }}
@@ -52,13 +67,15 @@ export default function PlanetDetailModal({
                   ? "Looking to go where no one has gone before? Look no further! This planet is an excellent challenge for the experienced astronaut seeking to push the boundaries of human occupation."
                   : "Off market"}
           </div>
-              {orbitalDistance >= 99
-              ? ""
-              : ""
-            }
-          <div>
+          {typeof orbitalDistance === "number" && orbitalDistance >= 99
+            ? ""
+            : ""}
 
-          </div>
+            <div className="p-3 border border-secondary rounded h-100">
+              <h6 className="text-uppercase text-muted fs-7 mb-1">Orbital Radius</h6>
+              <div className="fw-bold fs-5">{formatOrbitalDistance(orbitalDistance)}</div>
+            </div>
+  
         </Modal.Body>
 
         <Modal.Footer>
