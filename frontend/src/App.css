@@ -201,17 +201,6 @@
     thrusterFlicker2 0.2s ease-in-out infinite alternate;
 }
 
-/* html,
-body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  min-height: 100vh;
-  background-color: #100310;
-  color: white;
-  scroll-behavior: smooth;
-  scroll-padding-top: 2rem;
-} */
 
 #root {
   width: 100%;
@@ -226,7 +215,7 @@ body {
   overflow-x: hidden;
   display: flex;
   flex-direction: column;
-  background-image: url("./assets/backgroundImage.webp");
+  background-image: url("https://github.com/HeatherD2025/Exoplanet-Habitability/blob/main/frontend/src/assets/backgroundImage.webp?raw=true");
   background-size: cover;
   background-attachment: fixed;
   background-position: center;
