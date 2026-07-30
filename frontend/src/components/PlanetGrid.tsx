@@ -158,7 +158,7 @@ function PlanetGrid({ planets }: PlanetGridProps) {
                   </div>
                 </Card.Body>
                 <Card.Footer>
-                  {/* <button onClick={showModal}>View this listing</button> */}
+                  <button disabled>View this listing (coming soon)</button>
                 </Card.Footer>
               </Card>
             </Col>
