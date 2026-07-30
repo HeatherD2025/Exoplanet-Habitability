@@ -73,7 +73,7 @@ function PlanetGrid({ planets }: PlanetGridProps) {
 
           const habitabilityScore = planet.trait?.habitabilityScore ?? 0;
 
-          // Extract your dynamic webp assets and style settings here
+          // Extract dynamic webp assets and style settings here
           const { imageUrl, cardStyle } = getPlanetCardVisuals(planet);
 
           return (

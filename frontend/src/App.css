@@ -254,7 +254,7 @@
 }
 
 .listing-details-button {
+  border-radius: 8px;
   color: #0000;
-  border-radius: 10px 10px 10px 10px;
-  font-size: small;
+  cursor: pointer;
 }
