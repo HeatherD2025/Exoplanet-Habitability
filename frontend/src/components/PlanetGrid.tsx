@@ -160,7 +160,7 @@ function PlanetGrid({ planets }: PlanetGridProps) {
                 </Card.Body>
                 <Card.Footer>
                   <button
-                    disabled
+                    // disabled
                     className="listing-details-button"
                     style={{ color: "black" }}
                   >
