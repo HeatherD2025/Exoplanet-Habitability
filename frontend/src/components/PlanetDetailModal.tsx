@@ -17,7 +17,7 @@ function formatOrbitalDistance(au: number | null | undefined): string {
     return "With an extremely tight orbit close to host star, this planet boasts incredible sunsets unlike anything you've seen on Earth";
   if (au >= 0.8 && au <= 1.5)
     return "With an Earth-like orbital distance, the skies on this planet will feel much like the home you left.";
-  return `This planet sits ${au > 1 ? `${au.toFixed(1)}x further from it's host star than Earth and Sun.` : `This planet is ${(1 / au).toFixed(1)}x closer to its host star than Earth to the Sun.`})`;
+  return `${au > 1 ? `This planet sits ${au.toFixed(1)}x further from it's host star than Earth and Sun.` : `This planet is ${(1 / au).toFixed(1)}x closer to its host star than Earth to the Sun.`})`;
 }
 
 export default function PlanetDetailModal({
@@ -83,15 +83,14 @@ export default function PlanetDetailModal({
 
         <Modal.Body className="text-light p-2">
           <div>{habitabilityDescription}</div>
+          <br></br>
 
           <div>{temperatureDescription}</div>
-
+          <br></br>
           <div>{formatOrbitalDistance(orbitalDistance)}</div>
-
+          <br></br>
           <div className="p-3 border border-secondary rounded h-100">
-            <p className="text-uppercase text-muted fs-7 mb-1" style={{color: "white"}}>
-              Listing date:
-            </p>
+            <p className="text-uppercase fs-7 mb-1">Listing date:</p>
             <div> {planet?.discoveryYear || "Unknown"}</div>
           </div>
         </Modal.Body>
