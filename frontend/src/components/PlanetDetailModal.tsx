@@ -24,6 +24,7 @@ export default function PlanetDetailModal({
   planet,
   showModal,
   hideModal,
+  
 }: PlanetDetailModalProps) {
   const habitabilityScore = planet?.trait?.habitabilityScore ?? 0;
   const orbitalDistance = planet?.trait?.orbitalDistance;

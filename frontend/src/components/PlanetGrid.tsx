@@ -1,4 +1,5 @@
 import Container from "react-bootstrap/Container";
+import { useState } from "react";
 import { Row, Col, Card, Badge, CardHeader } from "react-bootstrap";
 import type { Planet } from "../types/planet";
 import { getPlanetCardVisuals } from "./TempToZone";
@@ -7,7 +8,6 @@ import PlanetDetailModal from "./PlanetDetailModal";
 interface PlanetGridProps {
   planets: Planet[];
 }
-
 
 function getAtmosphereLabel(
   confidence: string | null,
@@ -52,6 +52,20 @@ function getAtmosphereLabel(
 }
 
 function PlanetGrid({ planets }: PlanetGridProps) {
+  const [selectedPlanet, setSelectedPlanet] = useState<Planet | undefined>(
+    undefined,
+  );
+  const [showModal, setShowModal] = useState(false);
+
+  const handleOpenModal = (planet: Planet) => {
+    setSelectedPlanet(planet);
+    setShowModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
+
   const sortedPlanets = [...planets].sort((a, b) => {
     const scoreA = a.trait?.habitabilityScore ?? 0;
     const scoreB = b.trait?.habitabilityScore ?? 0;
@@ -161,7 +175,7 @@ function PlanetGrid({ planets }: PlanetGridProps) {
                 </Card.Body>
                 <Card.Footer>
                   <button
-                    onClick={openModal}
+                    onClick={() => handleOpenModal(planet)}
                     className="listing-details-button"
                     style={{ color: "black" }}
                   >
@@ -173,6 +187,12 @@ function PlanetGrid({ planets }: PlanetGridProps) {
           );
         })}
       </Row>
+
+      <PlanetDetailModal
+        planet={selectedPlanet}
+        showModal={showModal}
+        hideModal={handleCloseModal}
+      ></PlanetDetailModal>
     </Container>
   );
 }
