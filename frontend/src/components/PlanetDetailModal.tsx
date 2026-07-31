@@ -29,15 +29,8 @@ export default function PlanetDetailModal({
   const orbitalDistance = planet?.trait?.orbitalDistance;
   const equilibriumTemperatureFahrenheit =
     planet?.trait?.equilibriumTemperatureFahrenheit;
-  const temperatureDescription =
-    equilibriumTemperatureFahrenheit == null
-      ? "No temperature data available for this planet."
-      : equilibriumTemperatureFahrenheit >= 80
-        ? `With an average temperature ${planet?.trait?.equilibriumTemperatureFahrenheit?.toFixed(2)} °F, this balmy planet is sure to keep you warm all year round.`
-        : equilibriumTemperatureFahrenheit >= 50
-          ? `Pack your snowboots! With an average temperature ${planet?.trait?.equilibriumTemperatureFahrenheit?.toFixed(2)} °F, it's the perfect planet for winter lovers who don't mind a little chill in the air.`
-          : " ";
-  const habitabilityDescription = 
+
+  const habitabilityDescription =
     habitabilityScore == null
       ? "No habitability data available for this planet."
       : habitabilityScore >= 0.85
@@ -46,7 +39,18 @@ export default function PlanetDetailModal({
           ? "A great starter planet for those who dont mind a little terraformation. Although this beauty needs a bit of ecosystem modification, the possibilities are infinite!"
           : habitabilityScore >= 0.5
             ? "Looking to go where no one has gone before? Look no further! This planet is an excellent challenge for the experienced astronaut seeking to push the boundaries of human occupation."
-            : "Off market"
+            : "Off market";
+
+  const temperatureDescription =
+    equilibriumTemperatureFahrenheit == null
+      ? "No temperature data available for this planet."
+      : equilibriumTemperatureFahrenheit >= 80
+        ? `With an average temperature ${planet?.trait?.equilibriumTemperatureFahrenheit?.toFixed(2)} °F, this balmy planet is sure to keep you warm all year round.`
+        : equilibriumTemperatureFahrenheit >= 50
+          ? `With an average temperature ${planet?.trait?.equilibriumTemperatureFahrenheit?.toFixed(2)} °F, this planet is the perfect balance of earth-like temperatures that won't leave you out in the cold.`
+          : equilibriumTemperatureFahrenheit >= 0
+            ? `With an average temperature ${planet?.trait?.equilibriumTemperatureFahrenheit?.toFixed(2)} °F, it's the perfect planet for winter lovers who don't mind a little chill in the air.`
+            : " ";
 
   const { imageUrl, cardStyle } = planet
     ? getPlanetCardVisuals(planet)
@@ -77,21 +81,18 @@ export default function PlanetDetailModal({
           </div>
         </Modal.Header>
 
-        <Modal.Body className="text-light p-1">
+        <Modal.Body className="text-light p-2">
           <div>{habitabilityDescription}</div>
 
           <div>{temperatureDescription}</div>
 
-          <div className="p-3 border border-secondary rounded h-100">
-            <p className="text-uppercase text-muted fs-7 mb-1">Listing date:</p>
-            <div> {planet?.discoveryYear || "Unknown"}</div>
+          <div>{formatOrbitalDistance(orbitalDistance)}</div>
 
-            <p className="text-uppercase text-muted fs-7 mb-1">
-              Distance from host star:
+          <div className="p-3 border border-secondary rounded h-100">
+            <p className="text-uppercase text-muted fs-7 mb-1 text-light">
+              Listing date:
             </p>
-            <div className="fw-bold fs-5">
-              {formatOrbitalDistance(orbitalDistance)}
-            </div>
+            <div> {planet?.discoveryYear || "Unknown"}</div>
           </div>
         </Modal.Body>
 
