@@ -30,24 +30,24 @@ function getAtmosphereLabel(
   }
   if (normalizedConfidence === "Low") {
     return {
-      badge: canRetain ? "Unverified Envelope" : "Negligible",
+      badge: canRetain ? "Unverified Atmosphere" : "Negligible",
       variant: "secondary",
       note: canRetain
-        ? "Gravity suggests retention; awaiting scans."
-        : "Minimal vapor traces.",
+        ? "Gravity suggests atmospheric retention; awaiting scans."
+        : "Minimal atmospheric vapor traces.",
     };
   }
   if (confidence === "Medium") {
     return {
-      badge: "Confirmed Dynamic",
+      badge: "Confirmed Atmospheric Dynamic",
       variant: "info",
-      note: "Spectroscopy indicates active gases.",
+      note: "Spectroscopy indicates active atmospheric gases.",
     };
   }
   return {
     badge: "Stable Atmosphere",
     variant: "success",
-    note: "Dense, thoroughly measured envelope.",
+    note: "Dense, thoroughly measured atmosphere.",
   };
 }
 

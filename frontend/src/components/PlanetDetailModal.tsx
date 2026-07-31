@@ -24,10 +24,29 @@ export default function PlanetDetailModal({
   planet,
   showModal,
   hideModal,
-  
 }: PlanetDetailModalProps) {
   const habitabilityScore = planet?.trait?.habitabilityScore ?? 0;
   const orbitalDistance = planet?.trait?.orbitalDistance;
+  const equilibriumTemperatureFahrenheit =
+    planet?.trait?.equilibriumTemperatureFahrenheit;
+  const temperatureDescription =
+    equilibriumTemperatureFahrenheit == null
+      ? "No temperature data available for this planet."
+      : equilibriumTemperatureFahrenheit >= 80
+        ? `With an average temperature ${planet?.trait?.equilibriumTemperatureFahrenheit?.toFixed(2)} °F, this balmy planet is sure to keep you warm all year round.`
+        : equilibriumTemperatureFahrenheit >= 50
+          ? `Pack your snowboots! With an average temperature ${planet?.trait?.equilibriumTemperatureFahrenheit?.toFixed(2)} °F, it's the perfect planet for winter lovers who don't mind a little chill in the air.`
+          : " ";
+  const habitabilityDescription = 
+    habitabilityScore == null
+      ? "No habitability data available for this planet."
+      : habitabilityScore >= 0.85
+        ? "This high-end planet will have you moving at light-speed to make an offer! Boasting comfortable gravity and indication of an atmosphere, this planet is sure to have you seeing stars."
+        : habitabilityScore >= 0.75
+          ? "A great starter planet for those who dont mind a little terraformation. Although this beauty needs a bit of ecosystem modification, the possibilities are infinite!"
+          : habitabilityScore >= 0.5
+            ? "Looking to go where no one has gone before? Look no further! This planet is an excellent challenge for the experienced astronaut seeking to push the boundaries of human occupation."
+            : "Off market"
 
   const { imageUrl, cardStyle } = planet
     ? getPlanetCardVisuals(planet)
@@ -43,8 +62,8 @@ export default function PlanetDetailModal({
         style={{ ...cardStyle }}
       >
         <Modal.Header>
-          <Modal.Title> 
-            <span>key={planet?.name ?? "planet-detail-modal"}</span>
+          <Modal.Title>
+            <span>{planet?.name ?? "planet-detail-modal"}</span>
           </Modal.Title>
           <div
             className="position-relative pt-2"
@@ -58,25 +77,22 @@ export default function PlanetDetailModal({
           </div>
         </Modal.Header>
 
-        <Modal.Body>
-          <div>
-            {habitabilityScore >= 0.85
-              ? "This high-end planet will have you moving at light-speed to make an offer! Boasting comfortable gravity and indication of an atmosphere, this planet is sure to have you seeing stars."
-              : habitabilityScore >= 0.75
-                ? "A great starter planet for those who dont mind a little terraformation. Although this beauty needs a bit of ecosystem modification, the possibilities are infinite!"
-                : habitabilityScore >= 0.5
-                  ? "Looking to go where no one has gone before? Look no further! This planet is an excellent challenge for the experienced astronaut seeking to push the boundaries of human occupation."
-                  : "Off market"}
-          </div>
-          {typeof orbitalDistance === "number" && orbitalDistance >= 99
-            ? ""
-            : ""}
+        <Modal.Body className="text-light p-1">
+          <div>{habitabilityDescription}</div>
 
-            <div className="p-3 border border-secondary rounded h-100">
-              <h6 className="text-uppercase text-muted fs-7 mb-1">Orbital Radius</h6>
-              <div className="fw-bold fs-5">{formatOrbitalDistance(orbitalDistance)}</div>
+          <div>{temperatureDescription}</div>
+
+          <div className="p-3 border border-secondary rounded h-100">
+            <p className="text-uppercase text-muted fs-7 mb-1">Listing date:</p>
+            <div> {planet?.discoveryYear || "Unknown"}</div>
+
+            <p className="text-uppercase text-muted fs-7 mb-1">
+              Distance from host star:
+            </p>
+            <div className="fw-bold fs-5">
+              {formatOrbitalDistance(orbitalDistance)}
             </div>
-  
+          </div>
         </Modal.Body>
 
         <Modal.Footer>

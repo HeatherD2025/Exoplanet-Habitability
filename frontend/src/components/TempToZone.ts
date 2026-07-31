@@ -2,7 +2,6 @@ import type { Planet } from "../types/planet";
 import moveInReady from "../assets/moveInReady.webp";
 import arcticWonderland from "../assets/arcticWonderland.webp";
 import solarParadise from "../assets/solarParadise.webp";
-
 import fixerUpper from "../assets/fixerUpper.webp";
 
 const PLANET_IMAGES = {
