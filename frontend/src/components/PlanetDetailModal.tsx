@@ -14,10 +14,10 @@ interface PlanetDetailModalProps {
 function formatOrbitalDistance(au: number | null | undefined): string {
   if (!au || au <= 0) return "Orbital data unconfirmed";
   if (au < 0.1)
-    return `${au.toFixed(3)} AU (Extremely tight orbit, close to host star)`;
+    return "With an extremely tight orbit close to host star, this planet boasts incredible sunsets unlike anything you've seen on Earth";
   if (au >= 0.8 && au <= 1.5)
-    return `${au.toFixed(2)} AU (Earth-like orbital distance)`;
-  return `${au.toFixed(2)} AU (${au > 1 ? `${au.toFixed(1)}x further than Earth` : `${(1 / au).toFixed(1)}x closer than Earth`})`;
+    return "With an Earth-like orbital distance, the skies on this planet will feel much like the home you left.";
+  return `This planet sits ${au > 1 ? `${au.toFixed(1)}x further from it's host star than Earth and Sun.` : `This planet is ${(1 / au).toFixed(1)}x closer to its host star than Earth to the Sun.`})`;
 }
 
 export default function PlanetDetailModal({
