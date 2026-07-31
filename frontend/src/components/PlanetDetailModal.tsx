@@ -89,7 +89,7 @@ export default function PlanetDetailModal({
           <div>{formatOrbitalDistance(orbitalDistance)}</div>
 
           <div className="p-3 border border-secondary rounded h-100">
-            <p className="text-uppercase text-muted fs-7 mb-1 text-light">
+            <p className="text-uppercase text-muted fs-7 mb-1" style={{color: "white"}}>
               Listing date:
             </p>
             <div> {planet?.discoveryYear || "Unknown"}</div>
