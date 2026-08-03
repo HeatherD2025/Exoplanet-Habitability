@@ -36,7 +36,7 @@ export default function PlanetDetailModal({
       : habitabilityScore >= 0.85
         ? "This high-end planet will have you moving at light-speed to make an offer! Boasting comfortable gravity and indication of an atmosphere, this planet is sure to have you seeing stars."
         : habitabilityScore >= 0.75
-          ? "A great starter planet for those who dont mind a little terraformation. Although this beauty needs a bit of ecosystem modification, the possibilities are infinite!"
+          ? "A great starter planet for those who dont mind a little terraformation. Although this beauty needs a bit of ecosystem modification, the possibilities are infinite."
           : habitabilityScore >= 0.5
             ? "Looking to go where no one has gone before? Look no further! This planet is an excellent challenge for the experienced astronaut seeking to push the boundaries of human occupation."
             : "Off market";
@@ -52,7 +52,7 @@ export default function PlanetDetailModal({
             ? `With an average temperature ${planet?.trait?.equilibriumTemperatureFahrenheit?.toFixed(2)} °F, this planet is the perfect balance of earth-like temperatures that won't leave you out in the cold.`
             : equilibriumTemperatureFahrenheit >= 0
               ? `With an average temperature ${planet?.trait?.equilibriumTemperatureFahrenheit?.toFixed(2)} °F, it's the perfect planet for winter lovers who don't mind a little chill in the air.`
-              : "Bundle up because this planet is a true icebox! With an average temperature below freezing, you'll need to bring your warmest space suit to survive the cold nights.";
+              : "You will want to bundle up because this planet is a true icebox! With an average temperature below freezing, you'll need to bring your warmest space suit to survive the cold nights.";
 
   const { imageUrl, cardStyle } = planet
     ? getPlanetCardVisuals(planet)
