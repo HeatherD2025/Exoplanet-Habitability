@@ -50,7 +50,7 @@ export default function PlanetDetailModal({
           ? `With an average temperature ${planet?.trait?.equilibriumTemperatureFahrenheit?.toFixed(2)} °F, this planet is the perfect balance of earth-like temperatures that won't leave you out in the cold.`
           : equilibriumTemperatureFahrenheit >= 0
             ? `With an average temperature ${planet?.trait?.equilibriumTemperatureFahrenheit?.toFixed(2)} °F, it's the perfect planet for winter lovers who don't mind a little chill in the air.`
-            : " ";
+            : "Bundle up because this planet is a true icebox! With an average temperature below freezing, you'll need to bring your warmest space suit to survive the cold nights.";
 
   const { imageUrl, cardStyle } = planet
     ? getPlanetCardVisuals(planet)
