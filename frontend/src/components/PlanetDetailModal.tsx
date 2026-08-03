@@ -44,13 +44,15 @@ export default function PlanetDetailModal({
   const temperatureDescription =
     equilibriumTemperatureFahrenheit == null
       ? "No temperature data available for this planet."
-      : equilibriumTemperatureFahrenheit >= 80
-        ? `With an average temperature ${planet?.trait?.equilibriumTemperatureFahrenheit?.toFixed(2)} °F, this balmy planet is sure to keep you warm all year round.`
-        : equilibriumTemperatureFahrenheit >= 50
-          ? `With an average temperature ${planet?.trait?.equilibriumTemperatureFahrenheit?.toFixed(2)} °F, this planet is the perfect balance of earth-like temperatures that won't leave you out in the cold.`
-          : equilibriumTemperatureFahrenheit >= 0
-            ? `With an average temperature ${planet?.trait?.equilibriumTemperatureFahrenheit?.toFixed(2)} °F, it's the perfect planet for winter lovers who don't mind a little chill in the air.`
-            : "Bundle up because this planet is a true icebox! With an average temperature below freezing, you'll need to bring your warmest space suit to survive the cold nights.";
+      : equilibriumTemperatureFahrenheit >= 150
+        ? `With an average temperature ${planet?.trait?.equilibriumTemperatureFahrenheit?.toFixed(2)} °F, this sun-drenched planet will definitely require extensive cooling systems.`
+        : equilibriumTemperatureFahrenheit >= 80
+          ? `With an average temperature ${planet?.trait?.equilibriumTemperatureFahrenheit?.toFixed(2)} °F, this balmy planet is sure to keep you warm all year round.`
+          : equilibriumTemperatureFahrenheit >= 50
+            ? `With an average temperature ${planet?.trait?.equilibriumTemperatureFahrenheit?.toFixed(2)} °F, this planet is the perfect balance of earth-like temperatures that won't leave you out in the cold.`
+            : equilibriumTemperatureFahrenheit >= 0
+              ? `With an average temperature ${planet?.trait?.equilibriumTemperatureFahrenheit?.toFixed(2)} °F, it's the perfect planet for winter lovers who don't mind a little chill in the air.`
+              : "Bundle up because this planet is a true icebox! With an average temperature below freezing, you'll need to bring your warmest space suit to survive the cold nights.";
 
   const { imageUrl, cardStyle } = planet
     ? getPlanetCardVisuals(planet)
