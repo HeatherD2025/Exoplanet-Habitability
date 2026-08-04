@@ -1,7 +1,6 @@
-// src/mocks/mockPlanets.ts
-import type { PlanetApi, PlanetaryTraitApi } from "../types/";
+import type { PlanetApi, PlanetaryTraitApi } from "../types/planet";
 
-// Helper to construct complete, type-safe traits
+
 function createMockTrait(overrides: Partial<PlanetaryTraitApi>): PlanetaryTraitApi {
   return {
     equilibriumTemperatureKelvin: 288, // Earth baseline
@@ -18,6 +17,7 @@ function createMockTrait(overrides: Partial<PlanetaryTraitApi>): PlanetaryTraitA
       canRetain: true,
       atmosphereConfidence: "High",
       retentionReason: "Gravity and temperature support retention.",
+      hasSpectroscopyData: false,
     },
     habitabilityScore: 1.0,
     isIncompleteDataset: false,
@@ -44,6 +44,7 @@ export const MOCK_PLANETS: PlanetApi[] = [
         canRetain: true,
         atmosphereConfidence: "High",
         retentionReason: "Strong candidate based on spectroscopy and scale.",
+        hasSpectroscopyData: false,
       },
     }),
   },
@@ -65,6 +66,7 @@ export const MOCK_PLANETS: PlanetApi[] = [
         canRetain: true,
         atmosphereConfidence: "Low",
         retentionReason: "Gravity supports envelope, awaiting more scans.",
+        hasSpectroscopyData: false,
       },
     }),
   },
@@ -82,11 +84,12 @@ export const MOCK_PLANETS: PlanetApi[] = [
       stellarFlux: 2.5,
       orbitalDistance: 0.4,
       habitabilityScore: 0.55,
-      canRetain: false, // ❌ Falls below minimum score
+      canRetain: false,
       atmosphere: {
         canRetain: false,
         atmosphereConfidence: "Medium",
         retentionReason: "High temperature prevents long-term atmosphere retention.",
+        hasSpectroscopyData: false,
       },
     }),
   },
@@ -109,6 +112,7 @@ export const MOCK_PLANETS: PlanetApi[] = [
         canRetain: false,
         atmosphereConfidence: "None",
         retentionReason: "Extreme cold/radiation stripped envelope.",
+        hasSpectroscopyData: false,
       },
     }),
   },

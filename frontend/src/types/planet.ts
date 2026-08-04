@@ -1,5 +1,3 @@
-// src/types/planet.ts
-
 export type MassType = "MEASURED" | "CALCULATED" | "UNKNOWN";
 
 export interface Atmosphere {
@@ -35,3 +33,6 @@ export interface Planet {
   hostStarName: string | null;
   trait?: PlanetaryTrait | null;
 }
+
+export type PlanetaryTraitApi = PlanetaryTrait;
+export type PlanetApi = Planet;
