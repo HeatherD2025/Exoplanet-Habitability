@@ -36,7 +36,7 @@ export default function PlanetDetailModal({
       : habitabilityScore >= 0.85
         ? "This high-end planet will have you moving at light-speed to make an offer! Boasting comfortable gravity and indication of an atmosphere, this planet is sure to have you seeing stars."
         : habitabilityScore >= 0.75
-          ? "A great starter planet for those who dont mind a little terraformation. Although this beauty needs a bit of ecosystem modification, the possibilities are infinite."
+          ? "A great starter planet for those who don't mind a little terraformation. Although this beauty needs a bit of ecosystem modification, the possibilities are infinite."
           : habitabilityScore >= 0.5
             ? "Looking to go where no one has gone before? Look no further! This planet is an excellent challenge for the experienced astronaut seeking to push the boundaries of human occupation."
             : "Off market";
@@ -45,14 +45,14 @@ export default function PlanetDetailModal({
     equilibriumTemperatureFahrenheit == null
       ? "No temperature data available for this planet."
       : equilibriumTemperatureFahrenheit >= 150
-        ? `With an average temperature ${planet?.trait?.equilibriumTemperatureFahrenheit?.toFixed(2)} °F, this sun-drenched planet will definitely require extensive cooling systems.`
+        ? `With an average temperature ${planet?.trait?.equilibriumTemperatureFahrenheit?.toFixed(2)} °F, this sun-drenched planet will definitely have you reaching for your sunscreen. Buyers will likely require extensive cooling systems (not included).`
         : equilibriumTemperatureFahrenheit >= 80
-          ? `With an average temperature ${planet?.trait?.equilibriumTemperatureFahrenheit?.toFixed(2)} °F, this balmy planet is sure to keep you warm all year round.`
+          ? `With an average temperature ${planet?.trait?.equilibriumTemperatureFahrenheit?.toFixed(2)} °F, this planet feels like summer all year round. If you love heat, this HOT listing is perfect for you!`
           : equilibriumTemperatureFahrenheit >= 50
-            ? `With an average temperature ${planet?.trait?.equilibriumTemperatureFahrenheit?.toFixed(2)} °F, this planet is the perfect balance of earth-like temperatures that won't leave you out in the cold.`
+            ? `With an average temperature ${planet?.trait?.equilibriumTemperatureFahrenheit?.toFixed(2)} °F, this planet is the perfect balance of earth-like temperatures to keep you comfortable and feeling at home.`
             : equilibriumTemperatureFahrenheit >= 0
               ? `With an average temperature ${planet?.trait?.equilibriumTemperatureFahrenheit?.toFixed(2)} °F, it's the perfect planet for winter lovers who don't mind a little chill in the air.`
-              : "You will want to bundle up because this planet is a true icebox! With an average temperature below freezing, you'll need to bring your warmest space suit to survive the cold nights.";
+              : "You will want to bundle up as this planet is a true icebox! Be sure to bring your warmest space suit and heating systems to survive the cold nights here.";
 
   const { imageUrl, cardStyle } = planet
     ? getPlanetCardVisuals(planet)
