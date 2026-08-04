@@ -292,6 +292,8 @@
   .listing-details-button {
     font-size: clamp(14px, 2vw, 16px);
     margin-bottom: 1em;
+    color: black;
+    background-color: white;
   }
 
   .project-detail-modal-header {

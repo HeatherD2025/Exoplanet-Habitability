@@ -65,7 +65,6 @@ export function atmosphereAssessmentFromTrait(
   );
 }
 
-// 3. Updated formatting function with mass fallback and indexing
 export function formatPlanetaryTrait(trait: PlanetaryTrait): PlanetaryTraitApi {
   const rawRadius = toNumber(trait.planetaryRadius);
   let rawMass = toNumber(trait.planetaryMass);
