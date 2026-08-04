@@ -84,7 +84,6 @@ export const MOCK_PLANETS: PlanetApi[] = [
       stellarFlux: 2.5,
       orbitalDistance: 0.4,
       habitabilityScore: 0.55,
-      canRetain: false,
       atmosphere: {
         canRetain: false,
         atmosphereConfidence: "Medium",
@@ -107,7 +106,6 @@ export const MOCK_PLANETS: PlanetApi[] = [
       stellarFlux: 0.1,
       orbitalDistance: 0.05,
       habitabilityScore: 0.2,
-      canRetain: false,
       atmosphere: {
         canRetain: false,
         atmosphereConfidence: "None",
