@@ -15,7 +15,7 @@ export default function WelcomeModal({
 }: WelcomeModalProps) {
   return (
     <>
-      <Modal show={showModal} onHide={hideModal} size="lg" centered>
+      <Modal show={showModal} onHide={hideModal} size="lg" centered className="welcome-modal">
         <Modal.Header>
           <div className="modal-logo-wrapper">
             <AnimatedLogo />

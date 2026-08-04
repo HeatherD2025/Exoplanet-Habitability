@@ -97,58 +97,61 @@ export default function PlanetFilters({ onFilterChange }: PlanetFiltersProps) {
         <h2 className="tracking-tight text-light p-3">
           Available Interstellar Listings
         </h2>
-        <p className="text-small text-light mb-1">
+        <p className="text-small text-light mb-1 secondary-header-text">
           Premium planetary sectors calculated via telemetry analysis. Adjust
           custom options below.
         </p>
       </header>
-      <div className="d-flex align-items-center justify-content-between flex-wrap gap-2 p-4">
-        <div className="d-flex align-items-center gap-2 flex-wrap">
-          <span className="text-secondary text-light text-uppercase small tracking-wider p-4 me-2">
+      <div className="d-flex align-items-center justify-content-between flex-wrap gap-2 p-2">
+        <div className="d-flex align-items-center gap-2 flex-wrap lifestyle-buttons-container">
+          <span className="browse-lifestyles-span text-secondary text-light text-uppercase small tracking-wider p-3 me-2">
             Browse Lifestyles:
           </span>
-          <Button
-            variant={
-              activeLifestyle === "move-in-ready"
-                ? "success"
-                : "outline-success"
-            }
-            onClick={() => applyLifestyle("move-in-ready")}
-            className="rounded-pill px-3 btn-sm fw-semibold text-dark"
-            style={{ backgroundColor: "#beebc4" }}
-          >
-            Move-In Ready
-          </Button>
-          <Button
-            variant={
-              activeLifestyle === "paradise" ? "danger" : "outline-danger"
-            }
-            onClick={() => applyLifestyle("paradise")}
-            className="rounded-pill px-3 btn-sm fw-semibold text-dark"
-            style={{ backgroundColor: "#edd0cd" }}
-          >
-            Solar Paradise
-          </Button>
-          <Button
-            variant={
-              activeLifestyle === "arctic" ? "primary" : "outline-primary"
-            }
-            onClick={() => applyLifestyle("arctic")}
-            className="rounded-pill px-3 btn-sm fw-semibold text-dark"
-            style={{ backgroundColor: "#a4bbf1" }}
-          >
-            Arctic Wonderland
-          </Button>
-          <Button
-            variant={
-              activeLifestyle === "fixer" ? "warning" : "outline-warning"
-            }
-            onClick={() => applyLifestyle("fixer")}
-            className="rounded-pill px-3 btn-sm fw-semibold text-dark"
-            style={{ backgroundColor: "#efe1b7" }}
-          >
-            Fixer-Upper (As-Is)
-          </Button>
+
+          <div className="lifestyle-buttons-container d-flex flex-wrap gap-2">
+            <Button
+              variant={
+                activeLifestyle === "move-in-ready"
+                  ? "success"
+                  : "outline-success"
+              }
+              onClick={() => applyLifestyle("move-in-ready")}
+              className="rounded-pill px-3 btn-sm fw-semibold text-dark"
+              style={{ backgroundColor: "#beebc4" }}
+            >
+              Move-In Ready
+            </Button>
+            <Button
+              variant={
+                activeLifestyle === "paradise" ? "danger" : "outline-danger"
+              }
+              onClick={() => applyLifestyle("paradise")}
+              className="rounded-pill px-3 btn-sm fw-semibold text-dark"
+              style={{ backgroundColor: "#edd0cd" }}
+            >
+              Solar Paradise
+            </Button>
+            <Button
+              variant={
+                activeLifestyle === "arctic" ? "primary" : "outline-primary"
+              }
+              onClick={() => applyLifestyle("arctic")}
+              className="rounded-pill px-3 btn-sm fw-semibold text-dark"
+              style={{ backgroundColor: "#a4bbf1" }}
+            >
+              Arctic Wonderland
+            </Button>
+            <Button
+              variant={
+                activeLifestyle === "fixer" ? "warning" : "outline-warning"
+              }
+              onClick={() => applyLifestyle("fixer")}
+              className="rounded-pill px-3 btn-sm fw-semibold text-dark"
+              style={{ backgroundColor: "#efe1b7" }}
+            >
+              Fixer-Upper (As-Is)
+            </Button>
+          </div>
         </div>
 
         <Button
@@ -165,7 +168,7 @@ export default function PlanetFilters({ onFilterChange }: PlanetFiltersProps) {
       <Collapse in={open}>
         <div id="advanced-search-panel">
           <hr className="my-3 opacity-25" />
-          <Row className="g-3 p-3">
+          <Row className="g-3 p-2 advanced-search-row">
             <Col xs={12} md={4}>
               <Form.Group style={{ color: "white" }}>
                 <Form.Label className="text-secondary small mb-1 text-light">

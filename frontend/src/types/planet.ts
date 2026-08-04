@@ -1,20 +1,28 @@
+// src/types/planet.ts
+
+export type MassType = "MEASURED" | "CALCULATED" | "UNKNOWN";
+
 export interface Atmosphere {
   canRetain: boolean;
   hasSpectroscopyData: boolean;
   atmosphereConfidence: string;
+  retentionReason?: string; // 👈 Added to match backend calculateAtmosphere return object
 }
 
 export interface PlanetaryTrait {
   planetaryMass: number | null;
   planetaryRadius: number | null;
-  massType: string;
+  massType: MassType; // 👈 Updated from string to specific enum values
   stellarFlux: number | null;
   orbitalDistance: number | null;
   equilibriumTemperatureKelvin: number | null;
   equilibriumTemperatureFahrenheit: number | null;
-  transmissionSpectroscopyCount: number;
-  eclipseSpectroscopyCount: number;
-  directImagingSpectroscopyCount: number;
+
+  // NASA Spectroscopy counts can be null if unrecorded
+  transmissionSpectroscopyCount: number | null; // 👈 Added | null
+  eclipseSpectroscopyCount: number | null; // 👈 Added | null
+  directImagingSpectroscopyCount: number | null; // 👈 Added | null
+
   atmosphere: Atmosphere;
   habitabilityScore: number;
   isIncompleteDataset: boolean;
@@ -22,8 +30,8 @@ export interface PlanetaryTrait {
 
 export interface Planet {
   id: string;
-  name: string; // Updated from pl_name
-  discoveryYear: number | null; // Updated from disc_year
-  hostStarName: string | null; // Updated from hostname
-  trait?: PlanetaryTrait | null; // Holds all the habitability physics data
+  name: string;
+  discoveryYear: number | null;
+  hostStarName: string | null;
+  trait?: PlanetaryTrait | null;
 }

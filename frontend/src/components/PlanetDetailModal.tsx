@@ -67,7 +67,7 @@ export default function PlanetDetailModal({
         centered
         style={{ ...cardStyle }}
       >
-        <Modal.Header>
+        <Modal.Header className="project-detail-modal-header">
           <Modal.Title>
             <span>{planet?.name ?? "planet-detail-modal"}</span>
           </Modal.Title>
@@ -76,6 +76,7 @@ export default function PlanetDetailModal({
             style={{ height: "300px", overflow: "hidden" }}
           >
             <img
+              className="card-image-container"
               src={imageUrl}
               alt={`${planet?.name ?? "planet"} profile layout image`}
               style={{ height: "100%", objectFit: "contain" }}
@@ -99,7 +100,7 @@ export default function PlanetDetailModal({
 
         <Modal.Footer>
           <button
-            className="close-button"
+            className="close-button rounded-pill px-3 btn-sm fw-semibold text-dark"
             role="button"
             type="button"
             onClick={hideModal}

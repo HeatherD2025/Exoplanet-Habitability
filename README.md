@@ -1,9 +1,6 @@
 # Exoplanet Habitability App
+
 ## Deployed site: https://exoplanet-habitability.netlify.app/
-
-
-
-
 
 ## Security note: npm audit
 

@@ -103,7 +103,7 @@ function PlanetGrid({ planets }: PlanetGridProps) {
               >
                 {/* Visual Asset Container */}
                 <div
-                  className="position-relative pt-2"
+                  className="position-relative pt-2 card-image-container"
                   style={{ height: "300px", overflow: "hidden" }}
                 >
                   <Card.Img
@@ -121,7 +121,7 @@ function PlanetGrid({ planets }: PlanetGridProps) {
                     </Card.Title>
                   </div>
 
-                  <CardHeader className="w-100 bg-transparent border-0 p-0 mb-3">
+                  <CardHeader className="w-100 bg-transparent border-0 p-0 mb-3 quality-score-header">
                     <p className="text-white-50 mb-1 small">Quality Score:</p>
                     {planet.trait && (
                       <Badge
@@ -155,7 +155,7 @@ function PlanetGrid({ planets }: PlanetGridProps) {
                   </Card.Text>
 
                   {/* Reframed Atmosphere Section */}
-                  <div className="mt-1 mb-3 pt-2 border-top border-secondary">
+                  <div className="mt-1 mb-1 pt-2 border-top border-secondary">
                     <strong className="text-white-50 small d-block mb-1">
                       Atmosphere:
                     </strong>
