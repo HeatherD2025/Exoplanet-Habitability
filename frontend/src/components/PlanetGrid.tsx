@@ -95,7 +95,7 @@ function PlanetGrid({ planets }: PlanetGridProps) {
             return (
               <Col key={planet.id}>
                 <Card
-                  className="h-100 shadow-sm bg-dark text-white position-relative"
+                  className="h-100 shadow-sm bg-dark text-white d-flex align-items-center position-relative"
                   style={{
                     ...cardStyle,
                     borderRadius: "12px",
