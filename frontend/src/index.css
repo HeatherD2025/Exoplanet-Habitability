@@ -53,7 +53,11 @@ body {
   min-height: 100dvh;
   margin: 0;
   padding: 0;
-  background-color: transparent;
+  background-image: url("https://github.com/HeatherD2025/Exoplanet-Habitability/blob/main/frontend/src/assets/backgroundImage.webp?raw=true");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
   overflow-x: hidden;
 }
 
@@ -102,4 +106,3 @@ code {
   padding: 4px 8px;
   background: var(--code-bg);
 }
-
