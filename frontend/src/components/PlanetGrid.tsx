@@ -179,7 +179,7 @@ function PlanetGrid({ planets }: PlanetGridProps) {
                     className="listing-details-button"
                     style={{ color: "black" }}
                   >
-                    View this listing (coming soon)
+                    View this listing
                   </button>
                 </Card.Footer>
               </Card>
