@@ -92,8 +92,8 @@ export default function PlanetFilters({ onFilterChange }: PlanetFiltersProps) {
   };
 
   return (
-    <div className="rounded-3 shadow-sm bg-dark border m-2">
-      <header className="mt-2">
+    <div className="rounded-3 shadow-sm bg-dark border m-2 mx-auto">
+      <header className="mt-2 text-center filter-header-section">
         <h2 className="tracking-tight text-light p-3">
           Available Interstellar Listings
         </h2>
@@ -201,7 +201,7 @@ export default function PlanetFilters({ onFilterChange }: PlanetFiltersProps) {
                   size="sm"
                   value={filters.climateZone}
                   onChange={(e) =>
-                    updateFilters({ climateZone: e.target.value as any }, null)
+                    updateFilters({ climateZone: e.target.value as "all" | "arctic" | "temperate" | "tropical" }, null)
                   }
                 >
                   <option value="all">All Ecosystems</option>

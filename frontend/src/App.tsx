@@ -5,7 +5,7 @@ import Button from "react-bootstrap/Button";
 import usePlanets from "./hooks/usePlanets";
 import LandingView from "./views/LandingView";
 import DashboardView from "./views/DashboardView";
-import './App.css'
+import "./App.css";
 
 export default function App() {
   const [showModal, setShowModal] = useState<boolean>(true);
@@ -17,14 +17,23 @@ export default function App() {
 
   return (
     <>
-      <div className="main-background">
-        
-        <LandingView showModal={showModal} handleCloseModal={handleCloseModal} />
+      {/* <div className="main-background"> */}
 
-        {/* 2. Dashboard View & Data Container (Blue Section) */}
+      <div className="app-viewport">
+        {/* Global Fixed Background (Does not stretch on scroll) */}
+        <div className="bg-image" />
+
+        {/* Global Scrollable Content Layer */}
+        <div className="scroll-feed">
+
+        <LandingView
+          showModal={showModal}
+          handleCloseModal={handleCloseModal}
+        />
+
+        {/* Dashboard View & Data Container (Blue Section) */}
         {!showModal && (
           <main className="dashboard-container">
-            
             {/* Loading State */}
             {loading && (
               <div className="d-flex flex-column align-items-center justify-content-center my-5 text-white">
@@ -44,7 +53,7 @@ export default function App() {
                 </Alert>
               </div>
             )}
-            
+
             {/* Main Content (Filters, Grid, and Pagination) */}
             {!loading && !error && (
               <div className="container">
@@ -61,7 +70,11 @@ export default function App() {
                     >
                       {loadingMore ? (
                         <>
-                          <Spinner animation="border" size="sm" className="me-2" />
+                          <Spinner
+                            animation="border"
+                            size="sm"
+                            className="me-2"
+                          />
                           Searching Deeper Space...
                         </>
                       ) : (
@@ -70,7 +83,8 @@ export default function App() {
                     </Button>
                   ) : (
                     <p className="text-white-50 small fst-italic">
-                      You have mapped all available sectors within our local galactic cluster.
+                      You have mapped all available sectors within our local
+                      galactic cluster.
                     </p>
                   )}
                 </div>
@@ -78,6 +92,7 @@ export default function App() {
             )}
           </main>
         )}
+        </div>
       </div>
     </>
   );

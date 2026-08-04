@@ -1,3 +1,47 @@
+#root {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-height: 100vh !important;
+  display: flex !important;
+  flex-direction: column !important;
+  background-color: transparent !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Viewport & Static Background Layer */
+.app-viewport {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+.bg-image {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  background-image: url("https://github.com/HeatherD2025/Exoplanet-Habitability/blob/main/frontend/src/assets/backgroundImage.webp?raw=true");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.scroll-feed {
+  position: relative;
+  z-index: 1;
+  width: 80%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  margin: auto;
+}
+
+/* Modal Styling */
 .modal {
   position: fixed;
   top: 0;
@@ -108,6 +152,7 @@
   font-weight: 100;
 }
 
+/* Spaceship Keyframe Animations */
 @keyframes shipFloat {
   0%,
   100% {
@@ -154,12 +199,6 @@
   align-items: center;
 }
 
-.animated-logo-container {
-  width: 100%;
-  height: 100%;
-}
-
-/* Layout layout rules for your footer links */
 .footer-links {
   display: flex;
   gap: 1.5rem;
@@ -182,7 +221,6 @@
   transform-origin: center;
 }
 
-/* Floating Hover Animation for the Main Ship */
 .spaceship-body,
 .front-flame,
 .back-flames {
@@ -201,26 +239,7 @@
     thrusterFlicker2 0.2s ease-in-out infinite alternate;
 }
 
-#root {
-  width: 100%;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  background-color: black;
-}
-.main-background {
-  width: 100%;
-  min-height: 100vh;
-  overflow-x: hidden;
-  display: flex;
-  flex-direction: column;
-  background-image: url("https://github.com/HeatherD2025/Exoplanet-Habitability/blob/main/frontend/src/assets/backgroundImage.webp?raw=true");
-  background-size: cover;
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
+/* Main View Layouts */
 .landing-view,
 .main-header {
   width: 100%;
@@ -240,11 +259,11 @@
   min-height: 50vh;
   flex-grow: 1;
   box-sizing: border-box;
-  border-radius: 10px 10px 10px 10px;
+  border-radius: 10px;
 }
 
 .advanced-search-panel {
-  margin: 2em;
+  margin: auto;
 }
 
 .advanced-search-dropdown-button {
@@ -261,10 +280,18 @@
 
 /* Mobile (≤ 767px) */
 @media (max-width: 767px) {
+  .modal-footer {
+    margin-top: 1.5em;
+  }
   .dashboard-container {
     padding-top: 1.75em;
+    width: 95%;
   }
-
+  .filter-header-section {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
   .secondary-header-text {
     font-size: clamp(16px, 1vw, 20px);
     padding: 0 1em;
@@ -292,6 +319,7 @@
   .listing-details-button {
     font-size: clamp(14px, 2vw, 16px);
     margin-bottom: 1em;
+    width: 100%;
     color: black;
     background-color: white;
   }
@@ -308,6 +336,9 @@
 
 /* Tablet (768px - 1023px) */
 @media (min-width: 768px) and (max-width: 1023px) {
+  .modal-footer {
+    margin-top: 1.5em;
+  }
   .dashboard-container {
     padding-top: 2em;
     width: 90%;
@@ -342,14 +373,23 @@
 
 /* Desktop / Large Screens (≥ 1024px) */
 @media (min-width: 1024px) {
+  .modal-footer {
+    margin-top: 1.5em;
+  }
   .close-button-text {
     margin-bottom: 2em;
   }
   .dashboard-container {
     padding-top: 3em;
-    width: 55%;
+    width: 75%;
   }
   .lifestyle-buttons-container {
+    margin: auto;
+  }
+  .advanced-search-panel {
+    margin: auto !important;
+  }
+  .listing-details-button {
     margin: auto;
   }
   .close-button {
