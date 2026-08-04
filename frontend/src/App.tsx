@@ -18,80 +18,81 @@ export default function App() {
   return (
     <>
       {/* <div className="main-background"> */}
+      <div className="bg-image" />
 
       <div className="app-viewport">
-        {/* Global Fixed Background (Does not stretch on scroll) */}
-        <div className="bg-image" />
-
         {/* Global Scrollable Content Layer */}
         <div className="scroll-feed">
+          <LandingView
+            showModal={showModal}
+            handleCloseModal={handleCloseModal}
+          />
 
-        <LandingView
-          showModal={showModal}
-          handleCloseModal={handleCloseModal}
-        />
-
-        {/* Dashboard View & Data Container (Blue Section) */}
-        {!showModal && (
-          <main className="dashboard-container">
-            {/* Loading State */}
-            {loading && (
-              <div className="d-flex flex-column align-items-center justify-content-center my-5 text-white">
-                <Spinner animation="border" variant="light" className="mb-3" />
-                <p className="opacity-75">
-                  Scanning the cosmos for habitable listings...
-                </p>
-              </div>
-            )}
-
-            {/* Error State */}
-            {error && (
-              <div className="container my-4">
-                <Alert variant="danger" className="shadow">
-                  <Alert.Heading>Data Retrieval Error</Alert.Heading>
-                  <p className="mb-0">{error}</p>
-                </Alert>
-              </div>
-            )}
-
-            {/* Main Content (Filters, Grid, and Pagination) */}
-            {!loading && !error && (
-              <div className="container">
-                <DashboardView planets={planets} />
-
-                {/* Pagination controls */}
-                <div className="text-center my-5 pt-4 border-top border-secondary">
-                  {hasMore ? (
-                    <Button
-                      variant="light"
-                      onClick={loadMore}
-                      disabled={loadingMore}
-                      className="px-5 shadow-sm btn-lg"
-                    >
-                      {loadingMore ? (
-                        <>
-                          <Spinner
-                            animation="border"
-                            size="sm"
-                            className="me-2"
-                          />
-                          Searching Deeper Space...
-                        </>
-                      ) : (
-                        "Expand Search Coordinates"
-                      )}
-                    </Button>
-                  ) : (
-                    <p className="text-white-50 small fst-italic">
-                      You have mapped all available sectors within our local
-                      galactic cluster.
-                    </p>
-                  )}
+          {/* Dashboard View & Data Container (Blue Section) */}
+          {!showModal && (
+            <main className="dashboard-container">
+              {/* Loading State */}
+              {loading && (
+                <div className="d-flex flex-column align-items-center justify-content-center my-5 text-white">
+                  <Spinner
+                    animation="border"
+                    variant="light"
+                    className="mb-3"
+                  />
+                  <p className="opacity-75">
+                    Scanning the cosmos for habitable listings...
+                  </p>
                 </div>
-              </div>
-            )}
-          </main>
-        )}
+              )}
+
+              {/* Error State */}
+              {error && (
+                <div className="container my-4">
+                  <Alert variant="danger" className="shadow">
+                    <Alert.Heading>Data Retrieval Error</Alert.Heading>
+                    <p className="mb-0">{error}</p>
+                  </Alert>
+                </div>
+              )}
+
+              {/* Main Content (Filters, Grid, and Pagination) */}
+              {!loading && !error && (
+                <div className="container">
+                  <DashboardView planets={planets} />
+
+                  {/* Pagination controls */}
+                  <div className="text-center my-5 pt-4 border-top border-secondary">
+                    {hasMore ? (
+                      <Button
+                        variant="light"
+                        onClick={loadMore}
+                        disabled={loadingMore}
+                        className="px-5 shadow-sm btn-lg"
+                      >
+                        {loadingMore ? (
+                          <>
+                            <Spinner
+                              animation="border"
+                              size="sm"
+                              className="me-2"
+                            />
+                            Searching Deeper Space...
+                          </>
+                        ) : (
+                          "Expand Search Coordinates"
+                        )}
+                      </Button>
+                    ) : (
+                      <p className="text-white-50 small fst-italic">
+                        You have mapped all available sectors within our local
+                        galactic cluster.
+                      </p>
+                    )}
+                  </div>
+                </div>
+              )}
+            </main>
+          )}
         </div>
       </div>
     </>

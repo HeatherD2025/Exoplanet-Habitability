@@ -388,6 +388,7 @@
   }
   .lifestyle-buttons-container {
     margin: auto;
+    width: 100%;
   }
   .advanced-search-panel {
     margin: auto !important;
