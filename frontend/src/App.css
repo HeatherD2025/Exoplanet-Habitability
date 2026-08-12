@@ -416,9 +416,6 @@ button {
   .listing-details-button {
     margin: auto;
   }
-  .planet-detail-modal {
-    height: 80% !important;
-  }
   .close-button {
     margin: auto;
     margin-top: 1em;

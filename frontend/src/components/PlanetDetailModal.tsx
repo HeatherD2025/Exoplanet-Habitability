@@ -63,7 +63,7 @@ export default function PlanetDetailModal({
       <Modal
         show={showModal}
         onHide={hideModal}
-        size="lg"
+        size="xl"
         centered
         className="planet-detail-modal"
         style={{ ...cardStyle }}
@@ -73,7 +73,7 @@ export default function PlanetDetailModal({
             <span>{planet?.name ?? "planet-detail-modal"}</span>
           </Modal.Title>
           <div
-            className="position-relative pt-2"
+            className="position-relative pt-1"
             style={{ height: "300px", overflow: "hidden" }}
           >
             <img
