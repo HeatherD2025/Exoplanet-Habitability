@@ -418,6 +418,7 @@ button {
   }
   .card-body {
     padding: 1rem;
+    width: 100%;
   }
   .listing-details-button {
     margin: auto;
