@@ -97,16 +97,17 @@ export default function PlanetFilters({ onFilterChange }: PlanetFiltersProps) {
         <h2 className="tracking-tight text-light p-3">
           Available Interstellar Listings
         </h2>
-        <p className="text-small text-light mb-1 secondary-header-text">
+        <p className="text-small text-light mb-4 secondary-header-text">
           Premium planetary sectors calculated via telemetry analysis. Adjust
           custom options below.
         </p>
       </header>
-      <div className="d-flex align-items-center justify-content-between flex-wrap gap-2 p-2">
-        <div className="d-flex align-items-center gap-2 flex-wrap lifestyle-buttons-container">
-          <span className="browse-lifestyles-span text-secondary text-light text-uppercase small tracking-wider p-3 me-2">
+     
+        <span className="browse-lifestyles-span text-secondary text-light text-uppercase small tracking-wider p-4 me-2">
             Browse Lifestyles:
-          </span>
+        </span>
+
+        <div className="d-flex flex-wrap my-3 lifestyle-buttons-container">
 
           <div className="lifestyle-buttons-container d-flex flex-wrap gap-2">
             <Button
@@ -159,16 +160,16 @@ export default function PlanetFilters({ onFilterChange }: PlanetFiltersProps) {
           onClick={() => setOpen(!open)}
           aria-controls="advanced-search-panel"
           aria-expanded={open}
-          className="advanced-search-dropdown-button text-secondary text-light text-uppercase pl-4"
+          className="advanced-search-dropdown-button text-secondary text-light text-uppercase small tracking-wider px-4 me-2"
         >
           {open ? "Hide Advanced Options ▴" : "Configure Custom Amenities ▾"}
         </Button>
-      </div>
+  
 
       <Collapse in={open}>
         <div id="advanced-search-panel">
-          <hr className="my-3 opacity-25" />
-          <Row className="g-3 p-2 advanced-search-row">
+          <hr className="opacity-25" />
+          <Row className=" pb-3 advanced-search-row mx-3 mb-2">
             <Col xs={12} md={4}>
               <Form.Group style={{ color: "white" }}>
                 <Form.Label className="text-secondary small mb-1 text-light">

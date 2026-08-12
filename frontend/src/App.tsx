@@ -64,10 +64,10 @@ export default function App() {
                   <div className="text-center my-5 pt-4 border-top border-secondary">
                     {hasMore ? (
                       <Button
-                        variant="light"
                         onClick={loadMore}
                         disabled={loadingMore}
-                        className="px-5 shadow-sm btn-lg"
+                        className="rounded-pill px-3 btn-sm text-dark text-uppercase p-2 m-auto mt-4"
+                        style={{backgroundColor: "#b6b9bb"}}
                       >
                         {loadingMore ? (
                           <>

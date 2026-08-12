@@ -100,7 +100,7 @@ export default function PlanetDetailModal({
 
         <Modal.Footer>
           <button
-            className="rounded-pill px-3 btn-sm fw-semibold text-dark text-uppercase p-1 m-auto mt-4"
+            className="rounded-pill px-3 btn-sm text-dark text-uppercase p-1 m-auto mt-4"
             style={{backgroundColor: "#b6b9bb"}}
             role="button"
             type="button"

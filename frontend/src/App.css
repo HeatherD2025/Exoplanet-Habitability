@@ -378,6 +378,9 @@
 
 /* Desktop / Large Screens (≥ 1024px) */
 @media (min-width: 1024px) {
+  .dashboard-container {
+    padding-top: 1em !important;
+  }
   .planet-loading-container {
     margin: auto;
     text-align: center;
@@ -393,11 +396,15 @@
     width: 90%;
   }
   .lifestyle-buttons-container {
-    margin: auto;
+    display: flex;
+    justify-content: center;
+    gap: 2em !important;
     width: 100%;
   }
   .advanced-search-panel {
     margin: auto !important;
+    padding-left: 1rem;
+    padding-right: 20rem;
   }
   .listing-details-button {
     margin: auto;

@@ -158,7 +158,7 @@ function PlanetGrid({ planets }: PlanetGridProps) {
                     </Card.Text>
 
                     {/* Reframed Atmosphere Section */}
-                    <div className="mt-1 mb-1 pt-2 border-top border-secondary">
+                    <div className="my-1 pt-2 border-top border-secondary">
                       <strong className="text-white-50 small d-block mb-1">
                         Atmosphere:
                       </strong>
@@ -179,7 +179,7 @@ function PlanetGrid({ planets }: PlanetGridProps) {
                   <Card.Footer>
                     <button
                       onClick={() => handleOpenModal(planet)}
-                      className="rounded-pill px-3 btn-sm fw-semibold text-dark mb-3 text-uppercase p-1"
+                      className="rounded-pill px-3 btn-sm text-dark mb-3 text-uppercase p-1"
                       style={{backgroundColor: "#b6b9bb"}}
                     >
                       View this listing
