@@ -384,6 +384,7 @@ button {
 @media (min-width: 1024px) {
   .dashboard-container {
     padding-top: 1em !important;
+    width: 90%;
   }
   .planet-loading-container {
     margin: auto;
@@ -395,23 +396,28 @@ button {
   .close-button-text {
     margin-bottom: 2em;
   }
-  .dashboard-container {
-    padding-top: 3em;
-    width: 90%;
-  }
   .lifestyle-buttons-container {
     display: flex;
     justify-content: center;
     gap: 2em !important;
     width: 100%;
   }
+  .advanced-search-dropdown-button {
+    margin-bottom: 2em !important;
+  }
   .advanced-search-panel {
     margin: auto !important;
     padding-left: 1rem;
     padding-right: 20rem;
   }
+  .planet-card {
+    height: 80%;
+  }
   .listing-details-button {
     margin: auto;
+  }
+  .planet-detail-modal {
+    height: 80% !important;
   }
   .close-button {
     margin: auto;

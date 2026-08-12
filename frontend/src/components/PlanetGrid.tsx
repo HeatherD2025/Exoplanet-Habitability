@@ -75,7 +75,7 @@ function PlanetGrid({ planets }: PlanetGridProps) {
   return (
     <>
       <Container className="mt-4">
-        <Row className="row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+        <Row className="row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
           {sortedPlanets.map((planet) => {
             const canRetain =
               planet.trait && "canRetain" in planet.trait
@@ -95,7 +95,7 @@ function PlanetGrid({ planets }: PlanetGridProps) {
             return (
               <Col key={planet.id} className="individual-planet-card-container">
                 <Card
-                  className="h-100 shadow-sm bg-dark text-white d-flex align-items-center position-relative"
+                  className="planet-card shadow-sm bg-dark text-white d-flex align-items-center position-relative"
                   style={{
                     ...cardStyle,
                     borderRadius: "12px",
@@ -104,7 +104,7 @@ function PlanetGrid({ planets }: PlanetGridProps) {
                 >
                   {/* Visual Asset Container */}
                   <div
-                    className="position-relative pt-2 card-image-container"
+                    className="position-relative pt-1 card-image-container"
                     style={{ height: "300px", overflow: "hidden" }}
                   >
                     <Card.Img

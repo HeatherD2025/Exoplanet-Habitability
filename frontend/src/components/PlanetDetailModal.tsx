@@ -65,6 +65,7 @@ export default function PlanetDetailModal({
         onHide={hideModal}
         size="lg"
         centered
+        className="planet-detail-modal"
         style={{ ...cardStyle }}
       >
         <Modal.Header className="project-detail-modal-header">
