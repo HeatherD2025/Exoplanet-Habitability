@@ -38,7 +38,7 @@ export default function DashboardView({ planets }: DashboardViewProps) {
       if (!hasAtmosphere) return false;
     }
 
-    // 4. Climate Profiles
+    // Climate Profiles
     const tempK = trait.equilibriumTemperatureKelvin;
     if (activeFilters.climateZone !== "all") {
       if (!tempK) return false; // Filter unmeasured profiles when targeting zones

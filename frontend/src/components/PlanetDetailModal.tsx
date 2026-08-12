@@ -9,7 +9,7 @@ interface PlanetDetailModalProps {
   hideModal: () => void;
 }
 
-// use planetary radius to compare size to earth (Small, Med, Large lot?)
+// MAYBE TO-DO: use planetary radius to compare size to earth (Small, Med, Large lot?)
 
 function formatOrbitalDistance(au: number | null | undefined): string {
   if (!au || au <= 0) return "Orbital data unconfirmed";

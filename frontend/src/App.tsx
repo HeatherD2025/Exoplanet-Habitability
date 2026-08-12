@@ -33,7 +33,7 @@ export default function App() {
             <main className="dashboard-container">
               {/* Loading State */}
               {loading && (
-                <div className="d-flex flex-column align-items-center justify-content-center my-5 text-white">
+                <div className="d-flex flex-column align-items-center justify-content-center my-5 text-white planet-loading-container">
                   <Spinner
                     animation="border"
                     variant="light"

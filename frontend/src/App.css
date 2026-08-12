@@ -283,6 +283,10 @@
 
 /* Mobile (≤ 767px) */
 @media (max-width: 767px) {
+  .planet-loading-container {
+    margin: auto;
+    text-align: center;
+  }
   .modal-footer {
     margin-top: 1.5em;
   }
