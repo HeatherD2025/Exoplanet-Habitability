@@ -93,7 +93,7 @@ function PlanetGrid({ planets }: PlanetGridProps) {
             const { imageUrl, cardStyle } = getPlanetCardVisuals(planet);
 
             return (
-              <Col key={planet.id}>
+              <Col key={planet.id} className="individual-planet-card-container">
                 <Card
                   className="h-100 shadow-sm bg-dark text-white d-flex align-items-center position-relative"
                   style={{
@@ -123,7 +123,7 @@ function PlanetGrid({ planets }: PlanetGridProps) {
                     </div>
 
                     <CardHeader className="d-flex justify-content-center flex-column w-100 mx-auto bg-transparent border-0 p-0 mb-3 quality-score-header">
-                      <p className="text-white-50 mb-1 small mx-auto">
+                      <p className="text-white-50 mb-1 small mx-auto fw-semibold">
                         Quality Score:
                       </p>
                       {planet.trait && (
@@ -144,7 +144,7 @@ function PlanetGrid({ planets }: PlanetGridProps) {
 
                     <hr className="my-2 opacity-25 border-white" />
 
-                    <Card.Text className="text-white-50 small flex-grow-1 mb-2">
+                    <Card.Text className="text-white-50 small flex-grow-1 mb-2 fw-semibold">
                       <strong>Host Star:</strong>{" "}
                       {planet.hostStarName || "Unknown"} <br />
                       <strong>Discovery Year:</strong>{" "}
@@ -179,8 +179,8 @@ function PlanetGrid({ planets }: PlanetGridProps) {
                   <Card.Footer>
                     <button
                       onClick={() => handleOpenModal(planet)}
-                      className="listing-details-button mx-auto"
-                      style={{ color: "black" }}
+                      className="rounded-pill px-3 btn-sm fw-semibold text-dark mb-3 text-uppercase p-1"
+                      style={{backgroundColor: "#b6b9bb"}}
                     >
                       View this listing
                     </button>

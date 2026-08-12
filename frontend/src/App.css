@@ -276,12 +276,6 @@
   font-size: 0.875em;
 }
 
-.listing-details-button {
-  border-radius: 8px;
-  color: #0000;
-  cursor: pointer;
-}
-
 /* Mobile (≤ 767px) */
 @media (max-width: 767px) {
   .planet-loading-container {
@@ -317,6 +311,9 @@
   .advanced-search-panel {
     height: auto !important;
   }
+  .individual-planet-card-container {
+    padding: 0;
+  }
   .card-image-container {
     height: 225px !important;
   }
@@ -324,13 +321,13 @@
     font-size: clamp(14px, 2vw, 16px);
     margin-bottom: 0;
   }
-  .listing-details-button {
+  /* .listing-details-button {
     font-size: clamp(14px, 2vw, 16px);
     margin-bottom: 1em;
     width: 100%;
     color: black;
     background-color: white;
-  }
+  } */
 
   .project-detail-modal-header {
     height: 100%;

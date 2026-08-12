@@ -92,7 +92,7 @@ export default function PlanetDetailModal({
           <br></br>
           <div>{formatOrbitalDistance(orbitalDistance)}</div>
           <br></br>
-          <div className="p-3 border border-secondary rounded h-100">
+          <div className="p-3 border border-secondary rounded">
             <p className="text-uppercase fs-7 mb-1">Listing date:</p>
             <div> {planet?.discoveryYear || "Unknown"}</div>
           </div>
@@ -100,12 +100,12 @@ export default function PlanetDetailModal({
 
         <Modal.Footer>
           <button
-            className="close-button rounded-pill px-3 btn-sm fw-semibold text-dark"
+            className="rounded-pill px-3 btn-sm fw-semibold text-dark text-uppercase p-1 m-auto mt-4"
+            style={{backgroundColor: "#b6b9bb"}}
             role="button"
             type="button"
             onClick={hideModal}
-          >
-            <span className="close-button-text">Back to results</span>
+          >Back to results
           </button>
         </Modal.Footer>
       </Modal>
