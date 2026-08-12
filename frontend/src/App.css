@@ -134,6 +134,10 @@
   position: relative;
 }
 
+button {
+  border: none;
+}
+
 .modal-header {
   display: flex;
   flex-direction: column;
