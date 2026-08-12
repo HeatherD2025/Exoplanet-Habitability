@@ -75,7 +75,7 @@ function PlanetGrid({ planets }: PlanetGridProps) {
   return (
     <>
       <Container className="mt-4">
-        <Row className="row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+        <Row className="row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
           {sortedPlanets.map((planet) => {
             const canRetain =
               planet.trait && "canRetain" in planet.trait

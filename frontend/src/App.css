@@ -414,7 +414,10 @@ button {
     margin-bottom: 3em;
   }
   .planet-card {
-    height: 80%;
+    height: 85%;
+  }
+  .card-body {
+    padding: 1rem;
   }
   .listing-details-button {
     margin: auto;
