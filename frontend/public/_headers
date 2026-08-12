@@ -1,0 +1,7 @@
+# Prevent browsers from caching HTML so updates deploy instantly
+/*
+  Cache-Control: no-cache, no-store, must-revalidate
+
+# Safe long-term caching for Vite's hashed JS, CSS, and media assets
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable

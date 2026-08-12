@@ -16,8 +16,8 @@ function formatOrbitalDistance(au: number | null | undefined): string {
   if (au < 0.1)
     return "With an extremely tight orbit close to host star, this planet boasts incredible sunsets unlike anything you've seen on Earth";
   if (au >= 0.8 && au <= 1.5)
-    return "With an Earth-like orbital distance, the skies on this planet will feel much like the home you left.";
-  return `${au > 1 ? `This planet sits ${au.toFixed(1)}x further from it's host star than Earth and Sun.` : `This planet is ${(1 / au).toFixed(1)}x closer to its host star than Earth to the Sun.`})`;
+    return "With an Earth-like orbital distance, the sun in the sky of this planet will feel much like your old home star.";
+  return `${au > 1 ? `This planet sits ${au.toFixed(1)}x further from it's host star than Earth and Sun.` : `This planet is ${(1 / au).toFixed(1)}x closer to its host star than Earth to the Sun.`}`;
 }
 
 export default function PlanetDetailModal({
@@ -39,7 +39,7 @@ export default function PlanetDetailModal({
           ? "A great starter planet for those who don't mind a little terraformation. Although this beauty needs a bit of ecosystem modification, the possibilities are infinite."
           : habitabilityScore >= 0.5
             ? "Looking to go where no one has gone before? Look no further! This planet is an excellent challenge for the experienced astronaut seeking to push the boundaries of human occupation."
-            : "Off market";
+            : "Currently off market";
 
   const temperatureDescription =
     equilibriumTemperatureFahrenheit == null
