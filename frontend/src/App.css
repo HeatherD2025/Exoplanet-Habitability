@@ -410,6 +410,9 @@ button {
     padding-left: 1rem;
     padding-right: 20rem;
   }
+  .individual-planet-card-container {
+    margin-bottom: 3em;
+  }
   .planet-card {
     height: 80%;
   }

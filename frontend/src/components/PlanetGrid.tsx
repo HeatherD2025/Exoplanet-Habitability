@@ -93,7 +93,7 @@ function PlanetGrid({ planets }: PlanetGridProps) {
             const { imageUrl, cardStyle } = getPlanetCardVisuals(planet);
 
             return (
-              <Col key={planet.id} className="individual-planet-card-container">
+              <Col key={planet.id} className="individual-planet-card-container h-100">
                 <Card
                   className="planet-card shadow-sm bg-dark text-white d-flex align-items-center position-relative"
                   style={{
@@ -104,7 +104,7 @@ function PlanetGrid({ planets }: PlanetGridProps) {
                 >
                   {/* Visual Asset Container */}
                   <div
-                    className="position-relative pt-1 card-image-container"
+                    className="position-relative pt-2 card-image-container"
                     style={{ height: "300px", overflow: "hidden" }}
                   >
                     <Card.Img
