@@ -89,7 +89,7 @@ function resolveTargets(mode: SeedMode): SeedTarget[] {
 
 async function fetchNasaPlanets(): Promise<NasaPlanetRow[]> {
   const query =
-    "SELECT pl_name, disc_year, hostname, pl_bmassj, pl_rade, pl_orbsmax, st_lum, pl_eqt, pl_ntranspec, pl_nespec, pl_ndispec FROM pscomppars";
+    "SELECT pl_name, disc_year, hostname, pl_bmassj, pl_rade, pl_orbsmax, st_lum, pl_eqt, pl_ntranspec, pl_nespec, pl_ndispec FROM pscomppars WHERE disc_year >= 2026";
   const url = `https://exoplanetarchive.ipac.caltech.edu/TAP/sync?query=${encodeURIComponent(
     query.replace(/\s+/g, " ").trim(),
   )}&format=json`;
