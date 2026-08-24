@@ -118,7 +118,7 @@ function PlanetGrid({ planets }: PlanetGridProps) {
                   <Card.Body className="d-flex flex-column">
                     <div className="d-flex justify-content-center flex-wrap mb-2">
                       <Card.Title className="mb-0">
-                        <h3 className="h3 text-white mb-0">{planet.name}</h3>
+                        <h4 className="text-white mb-0">{planet.name}</h4>
                       </Card.Title>
                     </div>
 
