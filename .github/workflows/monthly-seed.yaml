@@ -19,15 +19,19 @@ jobs:
         with:
           node-version: '22'
           cache: 'npm'
+          cache-dependency-path: 'backend/package-lock.json'
 
-      - name: Install Dependencies
+      - name: Install Backend Dependencies
+        working-directory: ./backend
         run: npm ci
 
       - name: Generate Prisma Client
-        run: npx prisma generate --schema=backend/prisma/schema.prisma
+        working-directory: ./backend
+        run: npx prisma generate
 
       - name: Run Database Sync
+        working-directory: ./backend
         env:
           DIRECT_URL: ${{ secrets.DIRECT_URL }}
           SEED_TARGET: 'supabase'
-        run: npx tsx backend/prisma/seed.ts
+        run: npx tsx prisma/seed.ts
