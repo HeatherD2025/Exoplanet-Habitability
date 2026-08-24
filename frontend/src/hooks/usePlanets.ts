@@ -10,62 +10,36 @@ export default function usePlanets() {
 
   const BATCH_SIZE = 75;
 
-  const fetchPlanets = useCallback(
-    async (isInitial: boolean = false) => {
-      if (isInitial) {
-        setLoading(true);
-      } else {
-        setLoadingMore(true);
-      }
-      setError(null);
+  const fetchBatch = useCallback(async (skipCount: number) => {
+    const isInitial = skipCount === 0;
+    if (isInitial) setLoading(true);
+    else setLoadingMore(true);
 
-      try {
-        const currentSkip = isInitial ? 0 : planets.length;
+    try {
+      const response = await fetch(
+        `/api/planets?skip=${skipCount}&take=${BATCH_SIZE}`,
+      );
+      if (!response.ok) throw new Error(`HTTP error ${response.status}`);
 
-        const response = await fetch(
-          `/api/planets?skip=${currentSkip}&take=${BATCH_SIZE}`,
-        );
+      const data: Planet[] = await response.json();
 
-        if (!response.ok) {
-          throw new Error(
-            `Failed to scan the deep space archives: ${response.statusText}`,
-          );
-        }
-
-        const data: Planet[] = await response.json();
-
-        if (isInitial) {
-          setPlanets(data);
-        } else {
-          setPlanets((prev) => [...prev, ...data]);
-        }
-
-        if (data.length < BATCH_SIZE) {
-          setHasMore(false);
-        }
-      } catch (err: unknown) {
-        if (err instanceof Error) {
-          setError(err.message);
-        } else if (typeof err === "string") {
-          setError(err);
-        } else {
-          setError("An interstellar communication error occurred...");
-        }
-      } finally {
-        setLoading(false);
-        setLoadingMore(false);
-      }
-    },
-    [planets.length],
-  );
+      setPlanets((prev) => (isInitial ? data : [...prev, ...data]));
+      if (data.length < BATCH_SIZE) setHasMore(false);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Fetch error");
+    } finally {
+      setLoading(false);
+      setLoadingMore(false);
+    }
+  }, []);
 
   useEffect(() => {
-    fetchPlanets(true);
-  }, []);
+    fetchBatch(0);
+  }, [fetchBatch]);
 
   const loadMore = () => {
     if (!loadingMore && hasMore) {
-      fetchPlanets(false);
+      fetchBatch(planets.length);
     }
   };
 
